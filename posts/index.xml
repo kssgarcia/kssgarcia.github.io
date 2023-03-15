@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Kssgarcia</title>
+    <link>http://kssgarcia.github.io/posts/</link>
+    <description>Recent content in Posts on Kssgarcia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Feb 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Approach to structural optimization.</title>
+      <link>http://kssgarcia.github.io/posts/approximation-to-optimization-structural/</link>
+      <pubDate>Thu, 16 Feb 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/approximation-to-optimization-structural/</guid>
+      <description>This post will talk about structural optimization from a more general point of view, with the aim of strengthening the bases for future applications.
+To understand in a simple way the background of structural optimization it is a good idea to separate the two terms and take the definition of each. Optimization consists of doing things better and a structure can be understood as an assembly of material that has the purpose of supporting loading.</description>
+    </item>
+    
+    <item>
+      <title>Project 2023</title>
+      <link>http://kssgarcia.github.io/posts/project-2023/</link>
+      <pubDate>Wed, 15 Feb 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/project-2023/</guid>
+      <description>In this post I will talk about the project which I will be working approximate one year. The project is about structural optimization using machine learning. The general objetive is design microstructures of hybrids materials using structural optimization.
+With advances in the manufacturing technology of microstructures of materials, the interest has increased around material simulation and optimization. One idea that is had with the arrival of new technologies is the design and manufacture of microstructures for desired properties.</description>
+    </item>
+    
+    <item>
+      <title>Install OneDriver Linux</title>
+      <link>http://kssgarcia.github.io/posts/install-onedriver-linux/</link>
+      <pubDate>Fri, 10 Feb 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/install-onedriver-linux/</guid>
+      <description>This post is an installation&amp;rsquo;s guide for OneDriver on Ubuntu or Debian distributions.
+Almost my entire life I have used a computer with Windows operating system, some mouth ago I decide to try Linux operating system, just for curiosity, so I made a dual boot in my laptop giving me the possibility to use Linux and Windows, I decided to make this because there are some programs which aren&amp;rsquo;t available on Linux.</description>
+    </item>
+    
+  </channel>
+</rss>
