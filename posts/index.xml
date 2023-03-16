@@ -5,8 +5,19 @@
     <link>http://kssgarcia.github.io/posts/</link>
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 16 Feb 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ESO/BESO</title>
+      <link>http://kssgarcia.github.io/posts/eso_beso/</link>
+      <pubDate>Wed, 15 Mar 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/eso_beso/</guid>
+      <description>The ESO (evolutionary structural optimization) and BESO (bi-directional evolutionary structural optimization) methods are methods with hard-kill optimization criteria, that is, they can eliminate material and this causes the domain to be modified.
+The ESO method consists of the simple concept of removing material that is inefficient. This is done by calculating the stresses in the entire model and eliminating the elements with low values.
+Optimization by level of stress For this, the stress level of each element is calculated and compared with criteria defined as rejection criteria.</description>
+    </item>
+    
     <item>
       <title>Approach to structural optimization.</title>
       <link>http://kssgarcia.github.io/posts/approximation-to-optimization-structural/</link>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kssgarcia</title>
-    <link>http://kssgarcia.github.io/es/</link>
-    <description>Recent content on Kssgarcia</description>
+    <title>Posts on Kssgarcia</title>
+    <link>http://kssgarcia.github.io/es/posts/</link>
+    <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ESO/BESO</title>
       <link>http://kssgarcia.github.io/es/posts/eso_beso/</link>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head>
+<html lang="en"><head>
   <meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,12 @@
 <meta property="og:description" content="" />
 <meta name="twitter:description" content="" />
 
-<meta property="og:locale" content="en-us" />
-<meta name="language" content="en-us" />
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
+
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/approximation-to-optimization-structural/" title="English" />
+
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/approximation-to-optimization-structural/" title="Spanish" />
 
 
 
@@ -153,6 +157,17 @@ stroke-linejoin="round" class="feather feather-home">
   </nav>
 </div>
 
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/es/posts/approximation-to-optimization-structural/" style="text-decoration: none">Spanish</a>
+          
+          </nav>
+      
 <div class="wrapper post">
     <main class="page-content" aria-label="Content">
         <article>
@@ -176,7 +191,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Displacements, stresses, deformation, weight, geometry, forces, rigidity are some of the variables that can be optimized. An optimization problem is to choose one of these variables as a function to minimize or maximize and use a different one as a constraint.</p>
 <h3 id="references">References</h3>
 <ol>
-<li>Peter W. Christensen, A. K. (2009). <em>An Introduction to Structural Optimization</em>. Retrieve of <a href="http://gen.lib.rus.ec/book/index.php?md5=4d3f914b0552215d09b5b1ff589537e4">http://gen.lib.rus.ec/book/index.php?md5=4d3f914b0552215d09b5b1ff589537e4</a></li>
+<li>Peter W. Christensen, A. K. (2009). <em>An Introduction to Structural Optimization</em>. Retrieve of <a href="https://link.springer.com/book/10.1007/978-1-4020-8666-3">https://link.springer.com/book/10.1007/978-1-4020-8666-3</a></li>
 </ol>
 
             </div>
@@ -212,4 +227,16 @@ stroke-linejoin="round" class="feather feather-home">
     </small>
 </footer>
 <script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.f2fa3aed078bf5a7b612bf5548ddd0cb9891199ed24b5b673465df221e70bf4c.js"></script></body>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
 </html>
