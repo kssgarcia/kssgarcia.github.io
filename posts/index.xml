@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SIMP Method for Topology Optimization</title>
+      <link>http://kssgarcia.github.io/posts/simp/</link>
+      <pubDate>Mon, 20 Mar 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/simp/</guid>
+      <description>This method has been shown to be used in a large number of problems, since it is computationally efficient and simple to implement. Unlike BESO ESO/BESO this method uses a soft-kill criterion, that is, the elements are not completely eliminated, they are only reduces the elastic modulus or one of the dimensional characteristics. This criterion is implemented since the complete removal of elements can result in theoretical difficulties.
+The problem presented seeks to minimize the minimum compliance of the model.</description>
+    </item>
+    
     <item>
       <title>ESO/BESO</title>
       <link>http://kssgarcia.github.io/posts/eso_beso/</link>

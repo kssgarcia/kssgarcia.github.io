@@ -6,7 +6,16 @@
     <description>Recent content on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 15 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SIMP método para optimización topológica</title>
+      <link>http://kssgarcia.github.io/es/posts/simp/</link>
+      <pubDate>Mon, 20 Mar 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/simp/</guid>
+      <description>Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.</description>
+    </item>
+    
     <item>
       <title>ESO/BESO</title>
       <link>http://kssgarcia.github.io/es/posts/eso_beso/</link>
