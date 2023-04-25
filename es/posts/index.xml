@@ -6,7 +6,43 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Código de optimización BESO</title>
+      <link>http://kssgarcia.github.io/es/posts/beso/</link>
+      <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/beso/</guid>
+      <description>En esta publicación, presentaré un código Python para el método de optimización de ESO.
+Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ERR=0.005$.
+![[ESO_model.png]] Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
+Discretizar el dominio y asignar la propiedad inicial, 0 o 1, para cada elemento.</description>
+    </item>
+    
+    <item>
+      <title>Código de optimización ESO</title>
+      <link>http://kssgarcia.github.io/es/posts/how_eso/</link>
+      <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/how_eso/</guid>
+      <description>En esta publicación, presentaré un código Python para el método de optimización de ESO.
+Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ER=0.005$.
+Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
+Discretización del modelo en elementos finitos Realizar el análisis de elementos finitos de la estructura.</description>
+    </item>
+    
+    <item>
+      <title>Código de optimización ESO basado en rigidez</title>
+      <link>http://kssgarcia.github.io/es/posts/stiff_eso/</link>
+      <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/stiff_eso/</guid>
+      <description>En esta publicación, presentaré un código Python para el método de optimización de ESO.
+Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ER=0.005$.
+Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
+Discretización del modelo en elementos finitos Realizar el análisis de elementos finitos de la estructura.</description>
+    </item>
+    
     <item>
       <title>SIMP método para optimización topológica</title>
       <link>http://kssgarcia.github.io/es/posts/simp/</link>

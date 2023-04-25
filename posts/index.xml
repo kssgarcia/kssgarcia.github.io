@@ -6,7 +6,43 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Mar 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Apr 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BESO optimzation code</title>
+      <link>http://kssgarcia.github.io/posts/beso/</link>
+      <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/beso/</guid>
+      <description>In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+Discretize the domain and assign the initial property, 0 or 1, for each element.</description>
+    </item>
+    
+    <item>
+      <title>ESO optimization code.</title>
+      <link>http://kssgarcia.github.io/posts/how_eso/</link>
+      <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/how_eso/</guid>
+      <description>In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
+    </item>
+    
+    <item>
+      <title>Stiff bases ESO optimization code</title>
+      <link>http://kssgarcia.github.io/posts/stiff_eso/</link>
+      <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/stiff_eso/</guid>
+      <description>In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
+    </item>
+    
     <item>
       <title>SIMP Method for Topology Optimization</title>
       <link>http://kssgarcia.github.io/posts/simp/</link>
