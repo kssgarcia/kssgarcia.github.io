@@ -15,7 +15,7 @@
       <guid>http://kssgarcia.github.io/es/posts/beso/</guid>
       <description>En esta publicación, presentaré un código Python para el método de optimización de BESO.
 Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ERR=0.005$.
-![[ESO_model.png]] Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
+Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
 Discretizar el dominio y asignar la propiedad inicial, 0 o 1, para cada elemento.</description>
     </item>
     
