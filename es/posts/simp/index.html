@@ -1,237 +1,192 @@
 <!DOCTYPE html>
-<html lang="es" dir="auto">
+<html lang="en"><head>
+  <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>SIMP método para optimización topológica | Kssgarcia</title>
-<meta name="keywords" content="">
-<meta name="description" content="Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.">
-<meta name="author" content="">
-<link rel="canonical" href="http://kssgarcia.github.io/es/posts/simp/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="http://kssgarcia.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://kssgarcia.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://kssgarcia.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://kssgarcia.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="http://kssgarcia.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/simp/">
-<link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/simp/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
+<title itemprop="name">SIMP método para optimización topológica | Kssgarcia</title>
+<meta property="og:title" content="SIMP método para optimización topológica | Kssgarcia" />
+<meta name="twitter:title" content="SIMP método para optimización topológica | Kssgarcia" />
+<meta itemprop="name" content="SIMP método para optimización topológica | Kssgarcia" />
+<meta name="application-name" content="SIMP método para optimización topológica | Kssgarcia" />
+<meta property="og:site_name" content="" />
 
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
 
-            .list {
-                background: var(--theme);
-            }
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
 
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/simp/" title="English" />
 
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="SIMP método para optimización topológica" />
-<meta property="og:description" content="Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://kssgarcia.github.io/es/posts/simp/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-03-20T11:48:52-05:00" />
-<meta property="article:modified_time" content="2023-03-20T11:48:52-05:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SIMP método para optimización topológica"/>
-<meta name="twitter:description" content="Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas."/>
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/simp/" title="Spanish" />
 
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+
+  <meta itemprop="image" content="http://kssgarcia.github.io/" />
+  <meta property="og:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-03-20T11:48:52-0500 />
+    <meta property="article:published_time" content=2023-03-20T11:48:52-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
     {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://kssgarcia.github.io/es/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "SIMP método para optimización topológica",
-      "item": "http://kssgarcia.github.io/es/posts/simp/"
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "SIMP método para optimización topológica",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-03-20",
+        "description": "",
+        "wordCount":  1034 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-03-20",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Kssgarcia"
+        }
     }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "SIMP método para optimización topológica",
-  "name": "SIMP método para optimización topológica",
-  "description": "Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.",
-  "keywords": [
-    
-  ],
-  "articleBody": "Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.\nEn el problema que se presenta se busca minimizar el cumplimiento mínimo del modelo. Este esta dado por\n$$ \\begin{equation} \\text{Minimizar } C = f^T u \\tag{1a} \\end{equation} $$\n$$ \\begin{equation} \\text{Sujeto a: } V^* - \\sum _{i=1}^N v_i x_i = 0 \\tag{1b} \\end{equation} $$\n$$ \\begin{equation} x_i = x_{min} \\text{ o } 1 \\tag{1c} \\end{equation} $$\n$v_i$ es el volumen del elemento, $V^*$ es el volumen elegido para la estructura final y $x_i$ es la variable de diseño que denota la densidad relativa del elemento $i$; en este método se utiliza el doble de la energía de deformación que se utiliza en el método ESO/BESO. Al contrario que el método BESO, la variable de diseño nunca es cero, por lo tanto nunca se eliminan los elementos completamente, evitando tener elementos vacíos; para los elementos con $x_i=x_{min}$ se les llama elementos suaves o soft-elements en ingles, el valor de la variable $x_{min}$ puede ser por ejemplo $0.001$ pero nunca cero.\nEn este método se utiliza un esquema de interpolación de material con penalización para dirigir la solución a diseños casi solidos. Para conseguir este tipo de diseños el modulo de elasticidad es interpolado como función de la densidad del elemento o la variable de diseño:\n$$ \\begin{equation} E(x_i) = E_1x_i^p \\tag{2} \\end{equation} $$\ndonde $E_1$ es el modulo de young del elemento del material solido y $p$ es el exponente de penalización. Se asume que la razón de Poisson es independiente de la variable de diseño y la matriz de rigidez global es expresada por la matriz del elemento y la variable de diseño $x_i$ como\n$$ \\begin{equation} K = \\sum_i x_i^p K_i^0 \\tag{3} \\end{equation} $$\ndonde $K^0_i$ es la matriz de rigidez del elemento solido.\nAnálisis de sensibilidad Para obtener el numero de sensibilidad primero se considera la ecuación de equilibrio que esta expresada por\n$$ \\begin{equation} Ku = f \\tag{4} \\end{equation} $$\nsi se considera el cumplimiento mínimo (1a) y se asume que la variable de diseño $x_i$ varia continuamente entre $x_{min}$ y $1$, la sensibilidad de la función objetivo con respecto a la variable de diseño es\n$$ \\begin{equation} \\frac{dC}{dx_i} = \\frac{df^T}{dx_i}u + f^T\\frac{du}{dx_i} \\tag{5} \\end{equation} $$\nEl método adjunto es utilizado para calcular la sensibilidad del vector de desplazamientos. Introduciendo un vector de multiplicadores de Lagrange $\\lambda$, un termino extra $\\lambda^T(f-Ku)$ puede ser añadido a la función objetivo sin cambiar nada debido a la ecuación (4)\n$$ \\begin{equation} C = f^Tu + \\lambda^T(f-Ku) \\tag{6} \\end{equation} $$\nteniendo en cuenta la variación de la variable de diseño\n$$ \\begin{equation} \\frac{dC}{dx_i} = \\frac{df^T}{dx_i}u + f^T\\frac{du}{dx_i} + \\frac{\\lambda^T}{dx_i}(f-Ku) + \\lambda^T\\left(\\frac{f^T}{dx_i}-\\frac{K}{dx_i}u - K\\frac{u}{dx_i}\\right) \\tag{7} \\end{equation} $$\nen la ecuación mostrada anteriormente se puede eliminar los términos numero 1 y 3 debido a que se asume que la variación de $x_i$ no tiene efecto en el vector de fuerzas, por lo tanto $\\frac{df}{dx_i}$ y por que $f-Ku = 0$ debido a (4)\n$$ \\begin{equation} \\frac{dC}{dx_i} = (f^T - \\lambda^T K) \\frac{du}{dx_i} - \\lambda^T \\frac{dK}{dx_i} u \\tag{8} \\end{equation} $$\nde la ecuación (6) como $(f-Ku)$ es igual a cero, el vector $\\lambda$ puede ser elegido como sea. Para eliminar el termino $\\frac{du}{dx_i}$ de la ecuación anterior, $\\lambda$ se define teniendo en cuenta\n$$ \\begin{equation} f^T - \\lambda^T K = 0 \\tag{9} \\end{equation} $$\ncon la ecuación anterior y la ecuación de equilibrio (4) se obtiene la siguiente solución para $\\lambda$\n$$ \\begin{equation} \\lambda = u \\tag{10} \\end{equation} $$\nsustituyendo $\\lambda$ en la ecuación (8),\n$$ \\begin{equation} \\frac{dC}{dx_i} = - u^T \\frac{dK}{dx_i} u \\tag{11} \\end{equation} $$\nsustituyendo la ecuación (3) en la ecuación anterior se obtiene\n$$ \\begin{equation} \\frac{dC}{dx_i} = - p x_i^{p-1} u^T_i K_i^0 u_i \\tag{12} \\end{equation} $$\nEl problema de optimización anterior se puede resolver por diferentes acercamiento como el del criterio de optimalidad. Un esquema para la actualización de la variable de diseño puede ser\n$$ \\begin{equation} x_i^{K+1}= \\begin{cases}\\max \\left(x_{\\min }, x_i^K-m\\right) \u0026 \\text { si } x_i^K B_i^\\eta \\leq \\max \\left(x_{\\min }, x_i^K-m\\right) \\\\ \\min \\left(1, x_i^K+m\\right) \u0026 \\text { si } \\min \\left(1, x_i^K+m\\right) \\leq x_i^K B_i^\\eta \\\\ x_i^K B_i^\\eta \u0026 \\text { de otro modo }\\end{cases} \\tag{13} \\end{equation} $$\ndonde $x_i^K$ denota el valor de diseño en la iteración $K$, $m$ es el movimiento limite positivo, $\\eta$ es el coeficiente de amortiguamiento (normalmente es $0.5$) y $B_i$ se obtiene de la condición de optimalidad\n$$ \\begin{equation} B_i = \\lambda^{-1} p x_i^{p-1} u_i^T K_i^0 u_i \\tag{14} \\end{equation} $$\ndonde $\\lambda$ es el multiplicador de Lagrange que puede ser determinado usando el método de la bisección o Newton. Para asegurar que el diseño óptimo es independiente del mallado y libre del patrón de ajedrez, se introduce el siguiente esquema de filtro que modifica la sensibilidad de los elementos\n$$ \\begin{equation} \\frac{\\partial c}{\\partial x_i}=\\frac{1}{x_i \\sum_{j=1}^N H_{i j}} \\sum_{j=1}^N H_{i j} x_j \\frac{\\partial c}{\\partial x_j} \\tag{15} \\end{equation} $$\ndonde $N$ es el numero total de elementos en la malla y $H_{ij}$ es el factor de peso dado por\n$$ \\begin{equation} H_{i j}=r_{\\min }-r_{i j}, \\quad \\lbrace i \\in N | r_{ij} \\leq r_{min} \\rbrace \\tag{16} \\end{equation} $$\ndonde $r_{ij}$ es la distancia entre los centros de los elementos $i$ y $j$. El peso $H_{ij}$ es cero fuera del circulo de radio $r_{min}$.\nDiscretizar el dominio y asignar la propiedad inicial, $x_{min}$ o 1, para cada elemento. Realizar el análisis de elementos finito y calcular la sensibilidad de acuerdo con (12). Aplicar el esquema de filtro (15). Añadir y eliminar elementos. repetir los pasos del 2 al 4 hasta llegar al volumen $V^*$. Referencias Yago, D., Cante, J., Lloberas-Valls, O., \u0026 Oliver, J. (2022). Métodos de optimización de topología para problemas estructurales 3D: un estudio comparativo. Archives of Computational Methods in Engineering, 29(3), 1525–1567. doi:10.1007/s11831-021-09626-2\nHuang, X. y Xie, M. (2010). Optimización de topología evolutiva de estructuras continuas: métodos y aplicaciones. John Wiley \u0026 Sons.\n",
-  "wordCount" : "1034",
-  "inLanguage": "es",
-  "datePublished": "2023-03-20T11:48:52-05:00",
-  "dateModified": "2023-03-20T11:48:52-05:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://kssgarcia.github.io/es/posts/simp/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Kssgarcia",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://kssgarcia.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
+    </script>
 
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
+  <meta name="generator" content="Hugo 0.111.3">
 
-</script>
+  
 
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://kssgarcia.github.io/es/" accesskey="h" title="Kssgarcia (Alt + H)">Kssgarcia</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                <ul class="lang-switch"><li>|</li>
-                    <li>
-                        <a href="http://kssgarcia.github.io/" title="English"
-                            aria-label="English">En</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://kssgarcia.github.io/es/" title="Kssgarcia">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://kssgarcia.github.io/es/posts/" title="Posts">
-                    <span>Posts</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://kssgarcia.up.railway.app/" title="Portafolio">
-                    <span>Portafolio</span>&nbsp;
-                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                        <path d="M15 3h6v6"></path>
-                        <path d="M10 14L21 3"></path>
-                    </svg>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
+  <link rel="canonical" href="http://kssgarcia.github.io/es/posts/simp/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
 
-<article class="post-single">
-  <header class="post-header">
-    
+  
 
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-          
-          
-          delimiters: [
-              {left: '$$', right: '$$', display: true},
-              {left: '$', right: '$', display: false},
-              {left: '\\(', right: '\\)', display: false},
-              {left: '\\[', right: '\\]', display: true}
-          ],
-          
-          throwOnError : false
-        });
-    });
-</script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
 
-    
-    <h1 class="post-title">
-      SIMP método para optimización topológica
-    </h1>
-    <div class="post-meta"><span title='2023-03-20 11:48:52 -0500 -05'>marzo 20, 2023</span>&nbsp;|&nbsp;Traducciones:
-<ul class="i18n_list">
-    <li>
-        <a href="http://kssgarcia.github.io/posts/simp/">En</a>
-    </li>
-</ul>
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    </head><body data-theme = "dark" class="notransition">
+<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
+  <nav class="menu" aria-label="Main Navigation">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+    </a>
+    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+    <label for="menu-trigger">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+      </span>
+    </label>
+
+    <div class="trigger">
+      <ul class="trigger-container">
+        
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="/es/">
+            Home
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link active"
+            href="/es/posts/">
+            Posts
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="https://kssgarcia.up.railway.app/">
+            Portafolio
+            </a>
+            
+          </li>
+        
+        <li class="menu-separator">
+          <span>|</span>
+        </li>
+      </ul>
+      <a id="mode" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+      </a>
+    </div>
+  </nav>
 </div>
-  </header> 
-  <div class="post-content"><p>Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO <a href="https://kssgarcia.github.io/es/posts/eso_beso/">ESO/BESO</a> este método utiliza un criterio <em>soft-kill</em>, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.</p>
+
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/posts/simp/" style="text-decoration: none">English</a>
+          
+          </nav>
+      
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">SIMP método para optimización topológica</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-03-20T11:48:52-05:00" itemprop="datePublished"> Mar 20, 2023 </time>
+                </div>
+            </header>
+            <div class="page-content">
+                <p>Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO <a href="https://kssgarcia.github.io/es/posts/eso_beso/">ESO/BESO</a> este método utiliza un criterio <em>soft-kill</em>, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.</p>
 <p>En el problema que se presenta se busca minimizar el cumplimiento mínimo del modelo. Este esta dado por</p>
 <p>$$
 \begin{equation}
@@ -267,7 +222,7 @@ K = \sum_i x_i^p K_i^0
 \end{equation}
 $$</p>
 <p>donde $K^0_i$ es la matriz de rigidez del elemento solido.</p>
-<h3 id="análisis-de-sensibilidad">Análisis de sensibilidad<a hidden class="anchor" aria-hidden="true" href="#análisis-de-sensibilidad">#</a></h3>
+<h3 id="análisis-de-sensibilidad">Análisis de sensibilidad</h3>
 <p>Para obtener el numero de sensibilidad primero se considera la ecuación de equilibrio que esta expresada por</p>
 <p>$$
 \begin{equation}
@@ -369,7 +324,7 @@ $$</p>
 <li>Añadir y eliminar elementos.</li>
 <li>repetir los pasos del 2 al 4 hasta llegar al volumen $V^*$.</li>
 </ol>
-<h2 id="referencias">Referencias<a hidden class="anchor" aria-hidden="true" href="#referencias">#</a></h2>
+<h2 id="referencias">Referencias</h2>
 <ul>
 <li>
 <p>Yago, D., Cante, J., Lloberas-Valls, O., &amp; Oliver, J. (2022). Métodos de optimización de topología para problemas estructurales 3D: un estudio comparativo. Archives of Computational Methods in Engineering, 29(3), 1525–1567. doi:10.1007/s11831-021-09626-2</p>
@@ -379,84 +334,49 @@ $$</p>
 </li>
 </ul>
 
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-
-</article>
+            </div>
+        </article>
     </main>
-    
+</div>
 <footer class="footer">
-    <span>&copy; 2023 <a href="http://kssgarcia.github.io/es/">Kssgarcia</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
 </a>
+<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a></div>
+    <small class="footer_copyright">
+        © 2023 Sepúlveda K.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer>
+<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
 
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
     });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
+  </script>
 </html>
