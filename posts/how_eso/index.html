@@ -1,198 +1,253 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-<meta http-equiv="content-type" content="text/html">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" dir="auto">
 
-<title itemprop="name">ESO optimization code. | Kssgarcia</title>
-<meta property="og:title" content="ESO optimization code. | Kssgarcia" />
-<meta name="twitter:title" content="ESO optimization code. | Kssgarcia" />
-<meta itemprop="name" content="ESO optimization code. | Kssgarcia" />
-<meta name="application-name" content="ESO optimization code. | Kssgarcia" />
-<meta property="og:site_name" content="" />
-
-<meta name="description" content="">
-<meta itemprop="description" content="" />
-<meta property="og:description" content="" />
-<meta name="twitter:description" content="" />
-
-<meta property="og:locale" content="en" />
-<meta name="language" content="en" />
-
-  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/how_eso/" title="English" />
-
-  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/how_eso/" title="Spanish" />
-
-
-
-  <meta itemprop="image" content="http://kssgarcia.github.io/" />
-  <meta property="og:image" content="http://kssgarcia.github.io/" />
-  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
-  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
-
-
-
-
-    
-    
-    
-    
-
-    <meta property="og:type" content="article" />
-    <meta property="og:article:published_time" content=2023-04-23T11:48:52-0500 />
-    <meta property="article:published_time" content=2023-04-23T11:48:52-0500 />
-
-    
-
-    
-
-    <script defer type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "Article",
-        "headline": "ESO optimization code.",
-        "author": {
-        "@type": "Person",
-        "name": ""
-        },
-        "datePublished": "2023-04-23",
-        "description": "",
-        "wordCount":  1332 ,
-        "mainEntityOfPage": "True",
-        "dateModified": "2023-04-23",
-        "image": {
-        "@type": "imageObject",
-        "url": ""
-        },
-        "publisher": {
-        "@type": "Organization",
-        "name": "Kssgarcia"
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ESO optimization code. | Kssgarcia</title>
+<meta name="keywords" content="">
+<meta name="description" content="In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&rsquo;s diagram. First, let&rsquo;s consider the following steps to do algorithm:
+Discretization of the model in finite elements Perform the finite element analysis of the structure.">
+<meta name="author" content="">
+<link rel="canonical" href="http://kssgarcia.github.io/posts/how_eso/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.bf5f9f73cf17311d52cedbcda82c922e91b2f566d88a85ad9f5b5a08b586bd5f.css" integrity="sha256-v1&#43;fc88XMR1SztvNqCySLpGy9WbYioWtn1taCLWGvV8=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.acb54fd32bbc1982428b8850317e45d076b95012730a5936667e6bc21777692a.js" integrity="sha256-rLVP0yu8GYJCi4hQMX5F0Ha5UBJzClk2Zn5rwhd3aSo="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://kssgarcia.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://kssgarcia.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://kssgarcia.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://kssgarcia.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="http://kssgarcia.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/how_eso/">
+<link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/how_eso/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
         }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="ESO optimization code." />
+<meta property="og:description" content="In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&rsquo;s diagram. First, let&rsquo;s consider the following steps to do algorithm:
+Discretization of the model in finite elements Perform the finite element analysis of the structure." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://kssgarcia.github.io/posts/how_eso/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-23T11:48:52-05:00" />
+<meta property="article:modified_time" content="2023-04-23T11:48:52-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ESO optimization code."/>
+<meta name="twitter:description" content="In this post I will be present a python code for ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&rsquo;s diagram. First, let&rsquo;s consider the following steps to do algorithm:
+Discretization of the model in finite elements Perform the finite element analysis of the structure."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://kssgarcia.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "ESO optimization code.",
+      "item": "http://kssgarcia.github.io/posts/how_eso/"
     }
-    </script>
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ESO optimization code.",
+  "name": "ESO optimization code.",
+  "description": "In this post I will be present a python code for ESO optimization method.\nProblem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson\u0026rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.\nFigure 1. Beams\u0026rsquo;s diagram. First, let\u0026rsquo;s consider the following steps to do algorithm:\nDiscretization of the model in finite elements Perform the finite element analysis of the structure.",
+  "keywords": [
+    
+  ],
+  "articleBody": "In this post I will be present a python code for ESO optimization method.\nProblem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson’s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.\nFigure 1. Beams’s diagram. First, let’s consider the following steps to do algorithm:\nDiscretization of the model in finite elements Perform the finite element analysis of the structure. Remove elemens with less Von Mises stress. Increase the rejection ratio. Repeat steps 2-4 until the volume’s fraction is reached. Discretization The discretization is done with the following function with the help of numpy\ndef beam(L=10, H=10, F=-1000000, E=206.8e9, v=0.28, nx=20, ny=20): \"\"\" Make the mesh for a cuadrilateral model. Parameters ---------- L : float (optional) Beam's lenght H : float (optional) Beam's height F : float (optional) Vertical force. E : string (optional) Young module v : string (optional) Poisson ratio nx : int (optional) Number of element in x direction ny : int (optional) Number of element in y direction Returns ------- nodes : ndarray Nodes array mats : ndarray (1, 2) Mats array els : ndarray Elements array loads : ndarray Loads array BC : ndarray Boundary conditions nodes \"\"\" mats = np.array([[E,v]]) x, y, els = pre.rect_grid(L, H, nx, ny) nodes = np.zeros(((nx + 1)*(ny + 1), 5)) nodes[:, 0] = range((nx + 1)*(ny + 1)) nodes[:, 1] = x nodes[:, 2] = y mask = (x==L/2) nodes[mask, 3:] = -1 mask_loads = (x == -L/2) \u0026 (y \u003c H/6) \u0026 (y \u003e -H/6) loads_nodes = nodes[mask_loads, 0] loads = np.zeros((len(loads_nodes), 3)) loads[:, 0] = loads_nodes loads[:, 2] = F BC = nodes[mask, 0] return nodes, mats, els, loads, BC with this function it’s define the necessary variables to do finite element analysis\nlength = 20 height = 10 nx = 50 ny= 20 nodes, mats, els, loads, BC = beam(L=length, H=height, nx=nx, ny=ny) elsI,nodesI = np.copy(els), np.copy(nodes) Finite element analysis With these variables we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library Solidspy is used .\ndef preprocessing(nodes, mats, els, loads): \"\"\" Compute IBC matrix and the static solve. Parameters ---------- nodes : ndarray Array with models nodes mats : ndarray Array with models materials els : ndarray Array with models elements loads : ndarray Array with models loads Returns ------- bc_array : ndarray Boundary conditions array disp : ndarray Static displacement solve. \"\"\" assem_op, bc_array, neq = ass.DME(nodes[:, -2:], els, ndof_el_max=8) print(\"Number of elements: {}\".format(els.shape[0])) # System assembly stiff_mat, _ = ass.assembler(els, mats, nodes[:, :3], neq, assem_op) rhs_vec = ass.loadasem(loads, bc_array, neq) # System solution disp = sol.static_sol(stiff_mat, rhs_vec) if not np.allclose(stiff_mat.dot(disp)/stiff_mat.max(), rhs_vec/stiff_mat.max()): print(\"The system is not in equilibrium!\") return bc_array, disp def postprocessing(nodes, mats, els, IBC, UG): \"\"\" Compute the nodes displacements, strains and stresses. Parameters ---------- nodes : ndarray Array with models nodes mats : ndarray Array with models materials els : ndarray Array with models elements IBC : ndarray Boundary conditions array UG : ndarray Static solve. Returns ------- disp_complete : ndarray Displacements at elements. strain_nodes : ndarray Strains at elements. stress_nodes : ndarray Stresses at elements. \"\"\" disp_complete = pos.complete_disp(bc_array, nodes, disp) strain_nodes, stress_nodes = None, None strain_nodes, stress_nodes = pos.strain_nodes(nodes, els, mats, disp_complete) return disp_complete, strain_nodes, stress_nodes Optimization First let’s define the number of iteration niter, rejection ratio RR, the evolution ratio ER and the optimila volume fraction V_opt.\nIn the ciclye sequence first we check if the system is still in equilibrium if it’s not so the loop will be stop; after that, we solve the problem and calculate the Von Mises stress for each element and scale it. mask_del is a numpy array with of type bool with same size of els, the positions with value True will indicate that the element in that exact position will be removed, with the function protect_els() we will avoid the removal of the elements where the loads and boundary conditions were defined.\nAfter deleting the elements of the array we have to do a step more to ensure that the FEM analysis won’t fail withthe new els array, for this we have to restrict the free nodes del_node(). As last step we encrease the rejection ratio.\ndef is_equilibrium(nodes, mats, els, loads): \"\"\" Check if the system is in equilibrium Parameters ---------- nodes : ndarray Array with models nodes mats : ndarray Array with models materials els : ndarray Array with models elements loads : ndarray Array with models loads Returns ------- equil : bool Variable True when the system is in equilibrium and False when it doesn't \"\"\" equil = True DME, IBC, neq = ass.DME(nodes, els) KG = ass.assembler(els, mats, nodes, neq, DME) RHSG = ass.loadasem(loads, IBC, neq) UG = sol.static_sol(KG, RHSG) if not(np.allclose(KG.dot(UG)/KG.max(), RHSG/KG.max())): equil = False return equil def strain_els(els, E_nodes, S_nodes): \"\"\" Compute the elements strains and stresses. Parameters ---------- els : ndarray Array with models elements E_nodes : ndarray Strains at nodes. S_nodes : ndarray Stresses at nodes. Returns ------- E_els : ndarray (nnodes, 3) Strains at elements. S_els : ndarray (nnodes, 3) Stresses at elements. \"\"\" E_els = [] S_els = [] for el in els: strain_nodes = np.take(E_nodes, list(el[3:]), 0) stress_nodes = np.take(S_nodes, list(el[3:]), 0) strain_elemt = (strain_nodes[0] + strain_nodes[1] + strain_nodes[2] + strain_nodes[3]) / 4 stress_elemt = (stress_nodes[0] + stress_nodes[1] + stress_nodes[2] + stress_nodes[3]) / 4 E_els.append(strain_elemt) S_els.append(stress_elemt) E_els = np.array(E_els) S_els = np.array(S_els) return E_els, S_els def volume(els, length, height, nx, ny): \"\"\" Volume calculation. Parameters ---------- els : ndarray Array with models elements. length : ndarray Length of the beam. height : ndarray Height of the beam. nx : float ny : float Return ---------- V: float \"\"\" dy = length / nx dx = height / ny V = dx * dy * els.shape[0] return V def del_node(nodes, els): \"\"\" Retricts nodes dof that aren't been used. Parameters ---------- nodes : ndarray Array with models nodes els : ndarray Array with models elements Returns ------- \"\"\" n_nodes = nodes.shape[0] for n in range(n_nodes): if n not in els[:, -4:]: nodes[n, -2:] = -1 def protect_els(els, loads, BC): \"\"\" Compute an mask array with the elements that don't must be deleted. Parameters ---------- els : ndarray Array with models elements loads : ndarray Array with models loads BC : ndarray Boundary conditions nodes Returns ------- mask_els : ndarray Array with the elements that don't must be deleted. \"\"\" mask_els = np.ones_like(els[:,0], dtype=bool) protect_nodes = np.hstack((loads[:,0], BC)).astype(int) protect_index = None for p in protect_nodes: protect_index = np.argwhere(els[:, -4:] == p)[:,0] mask_els[protect_index] = False return mask_els niter = 200 RR = 0.01 ER = 0.005 V_opt = volume(els, length, height, nx, ny) * 0.60 ELS = None for _ in range(niter): if not is_equilibrium(nodes, mats, els, loads) or volume(els, length, height, nx, ny) \u003c V_opt: break ELS = els IBC, UG = preprocessing(nodes, mats, els, loads) UC, E_nodes, S_nodes = postprocessing(nodes, mats, els, IBC, UG) E_els, S_els = strain_els(els, E_nodes, S_nodes) vons = np.sqrt(S_els[:,0]**2 - (S_els[:,0]*S_els[:,1]) + S_els[:,1]**2 + 3*S_els[:,2]**2) RR_el = vons/vons.max() mask_del = RR_el \u003c RR mask_els = protect_els(els, loads, BC) mask_del *= mask_els els = np.delete(els, mask_del, 0) del_node(nodes, els) RR += ER print(RR) Results As can be seen in figure 2 the results of the exercise proposed at the beginning of the post are presented, for graph 2.a it is evident that the method does converge to an optimal structure, however several free elements are evident that can also be eliminated to get a better topology. This problem occurs because the method does not take into account the dependency of the mesh and the checkerboard pattern. For better results, you can vary $RR$, $ER$, or also increase the number of finite elements.\nFigure 2. ESO topologies for cantilever bea with diferent volume’s fraction: (a) 80%; (b) 70%; (c) 60%; (d) 50%. References [1] Nabaki, K., Shen, J., \u0026 Huang, X. (2019). Evolutionary topological optimization of continuous structures considering fatigue failure. Materials and design, 166, 107586. doi:10.1016/j.matdes.2019.107586\n",
+  "wordCount" : "1332",
+  "inLanguage": "en",
+  "datePublished": "2023-04-23T11:48:52-05:00",
+  "dateModified": "2023-04-23T11:48:52-05:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://kssgarcia.github.io/posts/how_eso/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kssgarcia",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://kssgarcia.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
 
-  <meta name="generator" content="Hugo 0.111.3">
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
 
-  
+</script>
 
-  <link rel="canonical" href="http://kssgarcia.github.io/posts/how_eso/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://kssgarcia.github.io/" accesskey="h" title="Kssgarcia (Alt + H)">Kssgarcia</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="http://kssgarcia.github.io/es/" title="Spanish"
+                            aria-label="Spanish">Es</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://kssgarcia.github.io/" title="Kssgarcia">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://kssgarcia.github.io/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://kssgarcia.up.railway.app/" title="Portafolio">
+                    <span>Portafolio</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
 
-  
+<article class="post-single">
+  <header class="post-header">
+    
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/images/favicon/site.webmanifest">
-  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
-  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
 
-  
-  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+    
+    <h1 class="post-title">
+      ESO optimization code.
+    </h1>
+    <div class="post-meta"><span title='2023-04-23 11:48:52 -0500 -05'>April 23, 2023</span>&nbsp;|&nbsp;Translations:
+<ul class="i18n_list">
+    <li>
+        <a href="http://kssgarcia.github.io/es/posts/how_eso/">Es</a>
+    </li>
+</ul>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
-
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-    </head><body data-theme = "dark" class="notransition">
-<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
-  <nav class="menu" aria-label="Main Navigation">
-    <a href="/" class="logo">
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
-viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
-stroke-linejoin="round" class="feather feather-home">
-<title>Home</title>
-<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-<polyline points="9 22 9 12 15 12 15 22"></polyline>
-</svg>
-    </a>
-    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
-    <label for="menu-trigger">
-      <span class="menu-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
-      </span>
-    </label>
-
-    <div class="trigger">
-      <ul class="trigger-container">
-        
-        
-          <li>
-            <a 
-            class="menu-link "
-            href="/">
-            Home
-            </a>
-            
-          </li>
-        
-          <li>
-            <a 
-            class="menu-link active"
-            href="/posts/">
-            Posts
-            </a>
-            
-          </li>
-        
-          <li>
-            <a 
-            class="menu-link "
-            href="https://kssgarcia.up.railway.app/">
-            Portafolio
-            </a>
-            
-          </li>
-        
-        <li class="menu-separator">
-          <span>|</span>
-        </li>
-      </ul>
-      <a id="mode" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
-<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
-<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
-      </a>
-    </div>
-  </nav>
 </div>
-
-      
-          <nav class="LangNav" style="
-              display: flex;
-              margin: auto;
-              width: 40vw;
-              justify-content: end;">
-          
-              <a href="http://kssgarcia.github.io/es/posts/how_eso/" style="text-decoration: none">Spanish</a>
-          
-          </nav>
-      
-<div class="wrapper post">
-    <main class="page-content" aria-label="Content">
-        <article>
-            <header class="header">
-                <h1 class="header-title">ESO optimization code.</h1>
-                
-                <div class="post-meta">
-                    <time datetime="2023-04-23T11:48:52-05:00" itemprop="datePublished"> Apr 23, 2023 </time>
-                </div>
-            </header>
-            <div class="page-content">
-                <p>In this post I will be present a python code for ESO optimization method.</p>
-<h3 id="problem-statement">Problem statement</h3>
+  </header> 
+  <div class="post-content"><p>In this post I will be present a python code for ESO optimization method.</p>
+<h3 id="problem-statement">Problem statement<a hidden class="anchor" aria-hidden="true" href="#problem-statement">#</a></h3>
 <p>Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="/ESO_model.png" alt="Scenario 1: Across columns"></th>
+<th style="text-align:center"><img loading="lazy" src="/ESO_model.png" alt="Scenario 1: Across columns"  />
+</th>
 </tr>
 </thead>
 <tbody>
@@ -209,7 +264,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Increase the rejection ratio.</li>
 <li>Repeat steps 2-4 until the volume&rsquo;s fraction is reached.</li>
 </ol>
-<h3 id="discretization">Discretization</h3>
+<h3 id="discretization">Discretization<a hidden class="anchor" aria-hidden="true" href="#discretization">#</a></h3>
 <p>The discretization is done with the following function with the help of numpy</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">F</span><span class="o">=-</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="mf">206.8e9</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mf">0.28</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
@@ -269,7 +324,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="n">ny</span><span class="o">=</span> <span class="mi">20</span>
 </span></span><span class="line"><span class="cl"><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span> <span class="o">=</span> <span class="n">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">elsI</span><span class="p">,</span><span class="n">nodesI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">els</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="finite-element-analysis">Finite element analysis</h3>
+</span></span></code></pre></div><h3 id="finite-element-analysis">Finite element analysis<a hidden class="anchor" aria-hidden="true" href="#finite-element-analysis">#</a></h3>
 <p>With these variables we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">Solidspy</a> is used .</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
@@ -340,7 +395,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">	<span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">strain_nodes</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">disp_complete</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">disp_complete</span><span class="p">,</span> <span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span>
-</span></span></code></pre></div><h3 id="optimization">Optimization</h3>
+</span></span></code></pre></div><h3 id="optimization">Optimization<a hidden class="anchor" aria-hidden="true" href="#optimization">#</a></h3>
 <p>First let&rsquo;s define the number of iteration <code>niter</code>, rejection ratio <code>RR</code>,  the evolution ratio <code>ER</code> and the optimila volume fraction <code>V_opt</code>.</p>
 <p>In the ciclye sequence first we check if the system is still in equilibrium if it&rsquo;s not so the loop will be stop; after that, we solve the problem and calculate the Von Mises stress for each element and scale it. <code>mask_del</code> is a numpy array with of type bool with same size of <code>els</code>, the positions with value <code>True</code> will indicate that the element in that exact position will be removed, with the function <code>protect_els()</code> we will avoid the removal of the elements where the loads and boundary conditions were defined.</p>
 <p>After deleting the elements of the array we have to do a step more to ensure that the FEM analysis won&rsquo;t fail withthe new <code>els</code> array, for this we have to restrict the free nodes <code>del_node()</code>. As last step we encrease the rejection ratio.</p>
@@ -509,12 +564,13 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="n">del_node</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">els</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">RR</span> <span class="o">+=</span> <span class="n">ER</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">RR</span><span class="p">)</span>
-</span></span></code></pre></div><h1 id="results">Results</h1>
+</span></span></code></pre></div><h1 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h1>
 <p>As can be seen in <em>figure 2</em> the results of the exercise proposed at the beginning of the post are presented, for graph <em>2.a</em> it is evident that the method does converge to an optimal structure, however several free elements are evident that can also be eliminated to get a better topology. This problem occurs because the method does not take into account the dependency of the mesh and the checkerboard pattern. For better results, you can vary $RR$, $ER$, or also increase the number of finite elements.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center"><img src="/ESO_1.png" alt="Scenario 1: Across columns"></th>
+<th style="text-align:center"><img loading="lazy" src="/ESO_1.png" alt="Scenario 1: Across columns"  />
+</th>
 </tr>
 </thead>
 <tbody>
@@ -523,52 +579,87 @@ stroke-linejoin="round" class="feather feather-home">
 </tr>
 </tbody>
 </table>
-<h1 id="references">References</h1>
+<h1 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h1>
 <p>[1] Nabaki, K., Shen, J., &amp; Huang, X. (2019). Evolutionary topological optimization of continuous structures considering fatigue failure. <em>Materials and design</em>, <em>166</em>, 107586. doi:10.1016/j.matdes.2019.107586</p>
 
-            </div>
-        </article>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+
+</article>
     </main>
-</div>
+    
 <footer class="footer">
-    <span class="footer_item"> </span>
-    &nbsp;
-
-    <div class="footer_social-icons">
-<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <path
-        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-    </path>
-</svg>
-</a>
-<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-    stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
-</svg>
-</a></div>
-    <small class="footer_copyright">
-        © 2023 Sepúlveda K.
-        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
-        theme on
-        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
-    </small>
+    <span>&copy; 2023 <a href="http://kssgarcia.github.io/">Kssgarcia</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
-<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
-  
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      renderMathInElement(document.body, {
-        delimiters: [
-          { left: "$$", right: "$$", display: true },
-          { left: "$", right: "$", display: false }
-        ]
-      });
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
     });
-  </script>
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
 </html>
