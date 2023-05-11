@@ -57,7 +57,7 @@
         },
         "datePublished": "2023-03-15",
         "description": "",
-        "wordCount":  1623 ,
+        "wordCount":  1625 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-03-15",
         "image": {
@@ -188,7 +188,7 @@ stroke-linejoin="round" class="feather feather-home">
             <div class="page-content">
                 <p>The ESO (evolutionary structural optimization) and BESO (bi-directional evolutionary structural optimization) methods are methods with hard-kill optimization criteria, that is, they can eliminate material and this causes the domain to be modified.</p>
 <p>The ESO method consists of the simple concept of removing material that is inefficient. This is done by calculating the stresses in the entire model and eliminating the elements with low values.</p>
-<h2 id="optimization-by-level-of-stress">Optimization by level of stress</h2>
+<h2 id="optimization-by-the-level-of-stress">Optimization by the level of stress</h2>
 <p>For this, the stress level of each element is calculated and compared with criteria defined as rejection criteria.</p>
 <p>$$
 \begin{equation}
@@ -210,13 +210,13 @@ $$</p>
 <li>Repeat steps 3 and 4 until you reach the desired point.</li>
 </ol>
 <h2 id="strain-energy-optimization">Strain energy optimization.</h2>
-<p>This criterion consists of taking stiffness as a factor to carry out the optimization. CoThe operation is not allowed because the subscription has exceeded its free quota. Commonly called mean compliance $C$, it is the inverse measure of the stiffness of the entire structure. The minimum compliance can be defined as the total strain energy</p>
+<p>This criterion consists of taking stiffness as a factor to carry out the optimization. The operation is not allowed because the subscription has exceeded its free quota. Commonly called mean compliance $C$, it is the inverse measure of the stiffness of the entire structure. The minimum compliance can be defined as the total strain energy</p>
 <p>$$
 \begin{equation}
 C = \frac{1}{2} f^T u
 \end{equation}
 $$</p>
-<p>where $f$ and $u$ are the vector of force and displacements respectively. The equilibrium of the structure is defined by:</p>
+<p>where $f$ and $u$ are the vectors of force and displacements respectively. The equilibrium of the structure is defined by:</p>
 <p>$$
 \begin{equation}
 Ku = f \end{equation}
@@ -266,8 +266,8 @@ V^* - \sum_{i=1}^N V_i x_i = 0
 \alpha^e_i = \left(\frac{1}{2} u^T_i K_iu_i\right)/V_i
 \end{equation}
 $$</p>
-<p>When a structure is discretized using few elements, convergence problems can be generated because the sensitivity number becomes discontinuous. To avoid this problem, a filter was devised that softens the sensitivity by means of nodes and elements to avoid mesh dependency.</p>
-<p>To carry out the smoothing filter, the nodes must first be smoothed, for this the following equation is used</p>
+<p>When a structure is discretized using a few elements, convergence problems can be generated because the sensitivity number becomes discontinuous. To avoid this problem, a filter was devised that softens the sensitivity by means of nodes and elements to avoid mesh dependency.</p>
+<p>To carry out the smoothing filter, the nodes must first be smoothed, for this, the following equation is used</p>
 <p>$$
 \begin{equation}
 \alpha^n_j = \sum_{i=1}^M w_i\alpha^e_i
@@ -279,7 +279,7 @@ $$</p>
 w_i = \frac{1}{M-1} \left( 1 - \frac{r_{ij}}{\sum_{i=1}^M r_{ij}} \right)
 \end{equation}
 $$</p>
-<p>where $r_{ij}$ is the distance between the center of the element $i$ and the node $j$, in this way the weight is greater when the distance between the element and the node is smaller. After performing the smoothing of the nodes, the smoothing of the elements is performed. To carry out this scheme, the distance $r_{min}$ is considered, which does not change with the refinement of the mesh. This distance defines the radius of the $\omega_i$ domain. The purpose of this domain is to identify the nodes that will influence the sensitivity of the element $i$.</p>
+<p>where $r_{ij}$ is the distance between the center of the element $i$ and the node $j$, in this way, the weight is greater when the distance between the element and the node is smaller. After performing the smoothing of the nodes, the smoothing of the elements is performed. To carry out this scheme, the distance $r_{min}$ is considered, which does not change with the refinement of the mesh. This distance defines the radius of the $\omega_i$ domain. The purpose of this domain is to identify the nodes that will influence the sensitivity of the element $i$.</p>
 <p>$$
 \begin{equation}
 \alpha_i = \frac{\sum_{i=1}^K w(r_{ij}) \alpha_j^n}{\sum_{i=1}^K w(r_{ij})}
@@ -291,7 +291,7 @@ $$</p>
 w(r_{ij}) = r_{min} - r_{ij}\ (j=1,2,&hellip;,K)
 \end{equation}
 $$</p>
-<p>In this way the sensitivity number is smoothed and the sensitivity of the empty elements is obtained. With this method, it is possible to solve the problem generated by the dependency of the mesh, however, this generates large oscillations in the objective function, producing convergence problems. For this, it was found that averaging the current sensitivity with the previous one solves this problem, this average is described by means of</p>
+<p>In this way, the sensitivity number is smoothed and the sensitivity of the empty elements is obtained. With this method, it is possible to solve the problem generated by the dependency of the mesh, however, this generates large oscillations in the objective function, producing convergence problems. For this, it was found that averaging the current sensitivity with the previous one solves this problem, this average is described by means of</p>
 <p>$$
 \begin{equation}
 \alpha_i = \frac{\alpha_i^k + \alpha_i^{k-1}}{2}

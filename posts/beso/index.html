@@ -186,9 +186,9 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
             </header>
             <div class="page-content">
-                <p>In this post I will be present a python code for BESO optimization method.</p>
+                <p>In this post, I will present a Python code for the BESO optimization method.</p>
 <h3 id="problem-statement">Problem statement</h3>
-<p>Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.</p>
+<p>Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.</p>
 <table>
 <thead>
 <tr>
@@ -201,17 +201,17 @@ stroke-linejoin="round" class="feather feather-home">
 </tr>
 </tbody>
 </table>
-<p>First, let&rsquo;s consider the following steps to do algorithm:</p>
+<p>First, let&rsquo;s consider the following steps to do the algorithm:</p>
 <ol>
 <li>Discretize the domain and assign the initial property, 0 or 1, for each element.</li>
 <li>Perform the finite element analysis and calculate the sensitivity according to.</li>
-<li>Average the sensitivity of the sensitivity with history and save the result for the next iteration .</li>
+<li>Average the sensitivity of the sensitivity with history and save the result for the next iteration.</li>
 <li>Determine the target volume for the next iteration.</li>
 <li>Add and remove items.</li>
 <li>Repeat steps 2 to 5 until the optimal volume is reached or the convergence criterion is satisfied.</li>
 </ol>
 <h3 id="discretization">Discretization</h3>
-<p>The discretization is done with the following function with the help of numpy</p>
+<p>The discretization is done with the following function with the help of NumPy</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">F</span><span class="o">=-</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="mf">206.8e9</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mf">0.28</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Make the mesh for a cuadrilateral model.
@@ -263,7 +263,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="n">loads</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span>
 </span></span><span class="line"><span class="cl">    <span class="n">BC</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span>
-</span></span></code></pre></div><p>with this function it&rsquo;s define the necessary variables to do finite element analysis</p>
+</span></span></code></pre></div><p>with this function will define the necessary variables to do finite element analysis</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">length</span> <span class="o">=</span> <span class="mi">20</span>
 </span></span><span class="line"><span class="cl"><span class="n">height</span> <span class="o">=</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl"><span class="n">nx</span> <span class="o">=</span> <span class="mi">50</span>
@@ -274,7 +274,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="n">IBC</span><span class="p">,</span> <span class="n">UG</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">UCI</span><span class="p">,</span> <span class="n">E_nodesI</span><span class="p">,</span> <span class="n">S_nodesI</span> <span class="o">=</span> <span class="n">postprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">IBC</span><span class="p">,</span> <span class="n">UG</span><span class="p">)</span>
 </span></span></code></pre></div><h3 id="finite-element-analysis">Finite element analysis</h3>
-<p>With these variables we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">Solidspy</a> is used .</p>
+<p>With these variables, we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">Solidspy</a> is used.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Compute IBC matrix and the static solve.
@@ -623,7 +623,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="n">sensi_els</span> <span class="o">=</span> <span class="n">sensi_els</span><span class="o">/</span><span class="n">sensi_els</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sensi_els</span>
-</span></span></code></pre></div><p>First let&rsquo;s define the number of iteration <code>niter</code>, <code>ERR</code> the evolutinary rejection ratio and <code>t</code> the allowable convergence tolarance, the mnimum radius <code>r_min</code> and the optimal volume <code>V_opt</code>. After the define these variable we compute the adjacency array for the nodes <code>adjacency_nodes()</code> and the center of each elements <code>center_els()</code>, these arrays will be used to achieved the filter scheme.</p>
+</span></span></code></pre></div><p>Firs, let&rsquo;s define the number of iteration <code>niter</code>, <code>ERR</code> the evolutionary rejection ratio and <code>t</code> the allowable convergence tolerance, the minimum radius <code>r_min</code> and the optimal volume <code>V_opt</code>. After defining these variables we compute the adjacency array for the nodes <code>adjacency_nodes()</code> and the center of each element <code>center_els()</code>, these arrays will be used to achieve the filter scheme.</p>
 <p>The loop&rsquo;s sequence is define with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">niter</span> <span class="o">=</span> <span class="mi">200</span>
 </span></span><span class="line"><span class="cl"><span class="n">ERR</span> <span class="o">=</span> <span class="mf">0.005</span>
@@ -703,7 +703,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="c1"># Save the sensitvity number for the next iteration</span>
 </span></span><span class="line"><span class="cl">    <span class="n">sensi_I</span> <span class="o">=</span> <span class="n">sensi_number</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </span></span></code></pre></div><h1 id="results">Results</h1>
-<p>As can be seen in <em>figure 2</em> the results of the exercise proposed at the beginning of the post are presented, for graph <em>2.a</em> it is evident that the method converge to an optimal structure. In this BESO program the dependency of the mesh and the checkerboard pattern problems are concider under the filter scheme <em>2.d</em>.</p>
+<p>As can be seen in <em>figure 2</em> the results of the exercise proposed at the beginning of the post are presented, in the graph <em>2.a</em> it is evident that the method converges to an optimal structure. In this BESO program, the dependency of the mesh and the checkerboard pattern problems are considered under the filter scheme <em>2.d</em>.</p>
 <table>
 <thead>
 <tr>

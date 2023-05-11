@@ -57,7 +57,7 @@
         },
         "datePublished": "2023-04-23",
         "description": "",
-        "wordCount":  1492 ,
+        "wordCount":  1493 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-04-23",
         "image": {
@@ -186,9 +186,9 @@ stroke-linejoin="round" class="feather feather-home">
                 </div>
             </header>
             <div class="page-content">
-                <p>In this post I will be present a python code for ESO optimization method.</p>
+                <p>In this post, I will present a Python code for the ESO optimization method.</p>
 <h3 id="problem-statement">Problem statement</h3>
-<p>Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.</p>
+<p>Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.</p>
 <table>
 <thead>
 <tr>
@@ -201,16 +201,16 @@ stroke-linejoin="round" class="feather feather-home">
 </tr>
 </tbody>
 </table>
-<p>First, let&rsquo;s consider the following steps to do algorithm:</p>
+<p>First, let&rsquo;s consider the following steps to do the algorithm:</p>
 <ol>
 <li>Discretization of the model in finite elements</li>
 <li>Perform the finite element analysis of the structure.</li>
 <li>Calculate the sensitivity number for each element.</li>
-<li>Remove a number of elements with the lowest ensitivity nubers according to a predifined element removal ratio ERR.</li>
-<li>Repeat step 2 to 4 until volume fraction is reached.</li>
+<li>Remove a number of elements with the lowest sensitivity numbers according to a predefined element removal ratio ERR.</li>
+<li>Repeat steps 2 to 4 until the volume fraction is reached.</li>
 </ol>
 <h3 id="discretization">Discretization</h3>
-<p>The discretization is done with the following function with the help of numpy</p>
+<p>The discretization is done with the following function with the help of NumPy</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">F</span><span class="o">=-</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="mf">206.8e9</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mf">0.28</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Make the mesh for a cuadrilateral model.
@@ -262,7 +262,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    <span class="n">loads</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span>
 </span></span><span class="line"><span class="cl">    <span class="n">BC</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span>
-</span></span></code></pre></div><p>with this function it&rsquo;s define the necessary variables to do finite element analysis</p>
+</span></span></code></pre></div><p>This function will define the necessary variables to do finite element analysis</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">length</span> <span class="o">=</span> <span class="mi">20</span>
 </span></span><span class="line"><span class="cl"><span class="n">height</span> <span class="o">=</span> <span class="mi">10</span>
 </span></span><span class="line"><span class="cl"><span class="n">nx</span> <span class="o">=</span> <span class="mi">50</span>
@@ -270,7 +270,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span> <span class="o">=</span> <span class="n">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="n">elsI</span><span class="p">,</span><span class="n">nodesI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">els</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">nodes</span><span class="p">)</span>
 </span></span></code></pre></div><h3 id="finite-element-analysis">Finite element analysis</h3>
-<p>With these variables we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">Solidspy</a> is used .</p>
+<p>With these variables, we can now solve the problem and obtain the displacements, deformations and stresses. To compute the finite element analysis the library <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">Solidspy</a> is used.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Compute IBC matrix and the static solve.
@@ -346,13 +346,13 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">    
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">disp_complete</span><span class="p">,</span> <span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span>
 </span></span></code></pre></div><h3 id="sensitivity-computation">Sensitivity computation</h3>
-<p>To calculate the sensitivity number of each elements we have to compute the following equation:</p>
+<p>To calculate the sensitivity number of each element we have to compute the following equation:</p>
 <p>$$
 \begin{equation}
 \alpha^e_i = \frac{1}{2}u^T_i K_iu_i
 \end{equation}
 $$
-where $u_i$  and $K_i$  are the element&rsquo;s displacement and the local stiffnes matrix, respectively.</p>
+where $u_i$  and $K_i$  are the element&rsquo;s displacement and the local stiffness matrix, respectively.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sensi_el</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">UC</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Calculate the sensitivity number for each element.
@@ -389,9 +389,9 @@ where $u_i$  and $K_i$  are the element&rsquo;s displacement and the local stiff
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sensi_number</span>
 </span></span></code></pre></div><h3 id="optimization">Optimization</h3>
-<p>First let&rsquo;s define the number of iteration <code>niter</code>, rejection ratio <code>RR</code>,  the evolution ratio <code>ER</code> and the optimila volume fraction <code>V_opt</code>.</p>
-<p>In the ciclye sequence first we check if the system is still in equilibrium if it&rsquo;s not so the loop will be stop; after that, we solve the problem and calculate the sensitivity number, after this we get the <code>mask_del</code> creating a bool array with the values of <code>sensi_number</code> array that are smaller than <code>RR</code> , the positions with value <code>True</code> will indicate that the element in that exact position will be removed, with the function <code>protect_els()</code> we will avoid the removal of the elements where the loads and boundary conditions were defined.</p>
-<p>After deleting the elements of the array we have to do a step more to ensure that the FEM analysis won&rsquo;t fail withthe new <code>els</code> array, for this we have to restrict the free nodes <code>del_node()</code>. As last step we encrease the rejection ratio.</p>
+<p>First, let&rsquo;s define the number of iteration <code>niter</code>, the rejection ratio <code>RR``,  the evolution ratio </code>ER<code>and the optimal volume fraction</code>V_opt`.</p>
+<p>In the cycle sequence, first, we check if the system is still in equilibrium if it&rsquo;s not so the loop will stop; after that, we solve the problem and calculate the sensitivity number, after this we get the <code>mask_del</code> creating a bool array with the values of <code>sensi_number</code> array that are smaller than <code>RR</code>, the positions with value <code>True</code> will indicate that the element in that exact position will be removed, with the function <code>protect_els()</code> we will avoid the removal of the elements where the loads and boundary conditions were defined.</p>
+<p>After deleting the elements of the array we have to do a step more to ensure that the FEM analysis won&rsquo;t fail with the new <code>els</code> array, for this we have to restrict the free nodes <code>del_node()</code>. As the last step, we increase the rejection ratio.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">is_equilibrium</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s2">    Check if the system is in equilibrium
@@ -559,7 +559,7 @@ where $u_i$  and $K_i$  are the element&rsquo;s displacement and the local stiff
 </span></span><span class="line"><span class="cl">    <span class="n">RR</span> <span class="o">+=</span> <span class="n">ER</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">RR</span><span class="p">)</span>
 </span></span></code></pre></div><h1 id="results">Results</h1>
-<p>As can be seen in <em>figure 2</em> the results of the exercise proposed at the beginning of the post are presented, for graph <em>2.a</em> it is evident that the method does converge to an optimal structure, however several free elements are evident that can also be eliminated to get a better topology. This problem occurs because the method does not take into account the dependency of the mesh and the checkerboard pattern. For better results, you can vary $RR$, $ER$, or also increase the number of finite elements.</p>
+<p>As can be seen in <em>figure 2</em> the results of the exercise proposed at the beginning of the post are presented, in the graph <em>2.a</em> it is evident that the method does converge to an optimal structure, however, several free elements are evident that can also be eliminated to get a better topology. This problem occurs because the method does not take into account the dependency of the mesh and the checkerboard pattern. For better results, you can vary $RR$, $ER$, or also increase the number of finite elements.</p>
 <table>
 <thead>
 <tr>

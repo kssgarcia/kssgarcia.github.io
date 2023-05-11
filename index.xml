@@ -13,9 +13,9 @@
       <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
       
       <guid>http://kssgarcia.github.io/posts/beso/</guid>
-      <description>In this post I will be present a python code for BESO optimization method.
-Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.
-Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+      <description>In this post, I will present a Python code for the BESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretize the domain and assign the initial property, 0 or 1, for each element.</description>
     </item>
     
@@ -25,9 +25,9 @@ Discretize the domain and assign the initial property, 0 or 1, for each element.
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
       
       <guid>http://kssgarcia.github.io/posts/how_eso/</guid>
-      <description>In this post I will be present a python code for ESO optimization method.
-Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
-Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+      <description>In this post, I will present a Python code for the ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
     </item>
     
@@ -37,9 +37,9 @@ Discretization of the model in finite elements Perform the finite element analys
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
       
       <guid>http://kssgarcia.github.io/posts/stiff_eso/</guid>
-      <description>In this post I will be present a python code for ESO optimization method.
-Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
-Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do algorithm:
+      <description>In this post, I will present a Python code for the ESO optimization method.
+Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
+Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
     </item>
     
@@ -61,7 +61,7 @@ The problem presented seeks to minimize the minimum compliance of the model.</de
       <guid>http://kssgarcia.github.io/posts/eso_beso/</guid>
       <description>The ESO (evolutionary structural optimization) and BESO (bi-directional evolutionary structural optimization) methods are methods with hard-kill optimization criteria, that is, they can eliminate material and this causes the domain to be modified.
 The ESO method consists of the simple concept of removing material that is inefficient. This is done by calculating the stresses in the entire model and eliminating the elements with low values.
-Optimization by level of stress For this, the stress level of each element is calculated and compared with criteria defined as rejection criteria.</description>
+Optimization by the level of stress For this, the stress level of each element is calculated and compared with criteria defined as rejection criteria.</description>
     </item>
     
     <item>
