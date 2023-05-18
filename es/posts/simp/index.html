@@ -57,7 +57,7 @@
         },
         "datePublished": "2023-03-20",
         "description": "",
-        "wordCount":  1034 ,
+        "wordCount":  1043 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-03-20",
         "image": {
@@ -318,11 +318,12 @@ H_{i j}=r_{\min }-r_{i j}, \quad \lbrace i \in N | r_{ij} \leq r_{min} \rbrace
 $$</p>
 <p>donde $r_{ij}$ es la distancia entre los centros de los elementos $i$ y $j$. El peso $H_{ij}$ es cero fuera del circulo de radio $r_{min}$.</p>
 <ol>
-<li>Discretizar el dominio y asignar la propiedad inicial, $x_{min}$ o 1, para cada elemento.</li>
-<li>Realizar el análisis de elementos finito y calcular la sensibilidad de acuerdo con (12).</li>
-<li>Aplicar el esquema de filtro (15).</li>
-<li>Añadir y eliminar elementos.</li>
-<li>repetir los pasos del 2 al 4 hasta llegar al volumen $V^*$.</li>
+<li>Discretizar el dominio e inicializar las variables de diseño.</li>
+<li>Realice el análisis de elementos finitos.</li>
+<li>Calcular la sensibilidad de la función objetivo con respecto a la densidad de cada elemento.</li>
+<li>Realizar los criterios de optimalidad.</li>
+<li>Calcular el error de la densidad.</li>
+<li>Repita los pasos 2 a 5 hasta que se logre la masa $M^*$ o la convergencia del error.</li>
 </ol>
 <h2 id="referencias">Referencias</h2>
 <ul>

@@ -57,7 +57,7 @@
         },
         "datePublished": "2023-03-20",
         "description": "",
-        "wordCount":  963 ,
+        "wordCount":  974 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-03-20",
         "image": {
@@ -315,11 +315,12 @@ H_{i j}=r_{\min }-r_{i j}, \quad \lbrace i \in N | r_{ij} \leq r_{min} \rbrace
 $$</p>
 <p>where $r_{ij}$ is the distance between the centers of the elements $i$ and $j$. The weight $H_{ij}$ is zero outside the circle of radius $r_{min}$.</p>
 <ol>
-<li>Discretize the domain and assign the initial property, $x_{min}$ or 1, to each element.</li>
-<li>Perform the finite element analysis and calculate the sensitivity according to (12).</li>
-<li>Apply the filter scheme (15).</li>
-<li>Add and remove items.</li>
-<li>Repeat steps 2 to 4 until reaching volume $V^*$.</li>
+<li>Discretized the domain and initialize the design variables.</li>
+<li>Perform the finite element analysis.</li>
+<li>Calculate the sensitivity of the objective function with respect to the density of each element.</li>
+<li>Perform the optimality criteria.</li>
+<li>Compute the error of the density.</li>
+<li>Repeat steps 2 to 5 until the mass $M^*$ or the convergence of the error is achieved.</li>
 </ol>
 <h2 id="references">References</h2>
 <ul>

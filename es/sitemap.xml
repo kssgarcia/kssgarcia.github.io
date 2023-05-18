@@ -2,21 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://kssgarcia.github.io/es/posts/beso/</loc>
-    <lastmod>2023-04-24T11:48:52-05:00</lastmod>
+    <loc>http://kssgarcia.github.io/es/posts/simp_code/</loc>
+    <lastmod>2023-05-17T11:48:52-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://kssgarcia.github.io/posts/beso/"
+                href="http://kssgarcia.github.io/posts/simp_code/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="http://kssgarcia.github.io/es/posts/beso/"
+                href="http://kssgarcia.github.io/es/posts/simp_code/"
                 />
   </url><url>
     <loc>http://kssgarcia.github.io/es/</loc>
-    <lastmod>2023-04-24T11:48:52-05:00</lastmod>
+    <lastmod>2023-05-17T11:48:52-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -29,7 +29,7 @@
                 />
   </url><url>
     <loc>http://kssgarcia.github.io/es/posts/</loc>
-    <lastmod>2023-04-24T11:48:52-05:00</lastmod>
+    <lastmod>2023-05-17T11:48:52-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,6 +39,19 @@
                 rel="alternate"
                 hreflang="es"
                 href="http://kssgarcia.github.io/es/posts/"
+                />
+  </url><url>
+    <loc>http://kssgarcia.github.io/es/posts/beso/</loc>
+    <lastmod>2023-04-24T11:48:52-05:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://kssgarcia.github.io/posts/beso/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://kssgarcia.github.io/es/posts/beso/"
                 />
   </url><url>
     <loc>http://kssgarcia.github.io/es/posts/how_eso/</loc>

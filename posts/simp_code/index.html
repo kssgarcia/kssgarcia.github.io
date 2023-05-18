@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">SIMP optimization code | Kssgarcia</title>
+<meta property="og:title" content="SIMP optimization code | Kssgarcia" />
+<meta name="twitter:title" content="SIMP optimization code | Kssgarcia" />
+<meta itemprop="name" content="SIMP optimization code | Kssgarcia" />
+<meta name="application-name" content="SIMP optimization code | Kssgarcia" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
+
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/simp_code/" title="English" />
+
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/simp_code/" title="Spanish" />
+
+
+
+  <meta itemprop="image" content="http://kssgarcia.github.io/" />
+  <meta property="og:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-05-17T11:48:52-0500 />
+    <meta property="article:published_time" content=2023-05-17T11:48:52-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "SIMP optimization code",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-05-17",
+        "description": "",
+        "wordCount":  1646 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-05-17",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Kssgarcia"
+        }
+    }
+    </script>
+
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+
+  <link rel="canonical" href="http://kssgarcia.github.io/posts/simp_code/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    </head><body data-theme = "dark" class="notransition">
+<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
+  <nav class="menu" aria-label="Main Navigation">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+    </a>
+    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+    <label for="menu-trigger">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+      </span>
+    </label>
+
+    <div class="trigger">
+      <ul class="trigger-container">
+        
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="/">
+            Home
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link active"
+            href="/posts/">
+            Posts
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="https://kssgarcia.up.railway.app/">
+            Portafolio
+            </a>
+            
+          </li>
+        
+        <li class="menu-separator">
+          <span>|</span>
+        </li>
+      </ul>
+      <a id="mode" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/es/posts/simp_code/" style="text-decoration: none">Spanish</a>
+          
+          </nav>
+      
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">SIMP optimization code</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-05-17T11:48:52-05:00" itemprop="datePublished"> May 17, 2023 </time>
+                </div>
+            </header>
+            <div class="page-content">
+                <p>This post will present a code implemented in Python for the topology optimization method SIMP.</p>
+<p>First, let’s consider the next <a href="https://kssgarcia.github.io/posts/simp/">steps</a> to make the algorithm:</p>
+<ol>
+<li>Discretized the domain and initialize the design variables.</li>
+<li>Perform the finite element analysis.</li>
+<li>Calculate the sensitivity of the objective function with respect to the density of each element.</li>
+<li>Perform the optimality criteria.</li>
+<li>Compute the error of the density.</li>
+<li>Repeat steps 2 to 5 until the mass $M^*$ or the convergence of the error is achieved.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">colors</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">beams</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">SIMP_utils</span> <span class="kn">import</span> <span class="o">*</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Mesh</span>
+</span></span><span class="line"><span class="cl"><span class="n">length</span> <span class="o">=</span> <span class="mi">50</span>
+</span></span><span class="line"><span class="cl"><span class="n">height</span> <span class="o">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">nx</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="n">ny</span><span class="o">=</span> <span class="mi">40</span>
+</span></span><span class="line"><span class="cl"><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span> <span class="o">=</span> <span class="n">beam</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="n">height</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="n">ny</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Calculate centers and volumes</span>
+</span></span><span class="line"><span class="cl"><span class="n">niter</span> <span class="o">=</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl"><span class="n">centers</span> <span class="o">=</span> <span class="n">center_els</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">els</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vi</span> <span class="o">=</span> <span class="n">volume</span><span class="p">(</span><span class="n">els</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize the design variables</span>
+</span></span><span class="line"><span class="cl"><span class="n">r_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">nodes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">nodes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span> <span class="o">*</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="n">penal</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">Emin</span><span class="o">=</span><span class="mf">1e-9</span>
+</span></span><span class="line"><span class="cl"><span class="n">Emax</span><span class="o">=</span><span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl"><span class="n">volfrac</span> <span class="o">=</span> <span class="mf">0.5</span>
+</span></span><span class="line"><span class="cl"><span class="n">change</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">g</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialize the density, sensitivity and the iteration history</span>
+</span></span><span class="line"><span class="cl"><span class="n">rho</span> <span class="o">=</span> <span class="n">volfrac</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="n">nx</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">sensi_rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rho_old</span> <span class="o">=</span> <span class="n">rho</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">d_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">d_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">rho_data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">change</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Convergence reached&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">mats</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">Emin</span><span class="o">+</span><span class="n">rho</span><span class="o">**</span><span class="n">penal</span><span class="o">*</span><span class="p">(</span><span class="n">Emax</span><span class="o">-</span><span class="n">Emin</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">IBC</span><span class="p">,</span> <span class="n">UG</span><span class="p">,</span> <span class="n">rhs_vec</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">UC</span><span class="p">,</span> <span class="o">*</span><span class="n">_</span> <span class="o">=</span> <span class="n">postprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">[:,:</span><span class="mi">2</span><span class="p">],</span> <span class="n">els</span><span class="p">,</span> <span class="n">IBC</span><span class="p">,</span> <span class="n">UG</span><span class="p">,</span> <span class="n">strain_sol</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Sensitivity analysis</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sensi_rho</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">sensitivity_els</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">UC</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">obj</span> <span class="o">=</span> <span class="p">((</span><span class="n">Emin</span><span class="o">+</span><span class="n">rho</span><span class="o">**</span><span class="n">penal</span><span class="o">*</span><span class="p">(</span><span class="n">Emax</span><span class="o">-</span><span class="n">Emin</span><span class="p">))</span><span class="o">*</span><span class="n">sensi_rho</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d_c</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">penal</span><span class="o">*</span><span class="n">rho</span><span class="o">**</span><span class="p">(</span><span class="n">penal</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Emax</span><span class="o">-</span><span class="n">Emin</span><span class="p">))</span><span class="o">*</span><span class="n">sensi_rho</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d_v</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">ny</span><span class="o">*</span><span class="n">nx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">d_c</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">density_filter</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">r_min</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">d_c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Optimality criteria</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rho_old</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rho</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rho</span><span class="p">[:],</span> <span class="n">g</span> <span class="o">=</span> <span class="n">optimality_criteria</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">d_c</span><span class="p">,</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Compute the change</span>
+</span></span><span class="line"><span class="cl">    <span class="n">change</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">rho</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">rho_old</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="necessary-functions">Necessary functions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">beam_2</span><span class="p">(</span><span class="n">L</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">F</span><span class="o">=-</span><span class="mi">1000000</span><span class="p">,</span> <span class="n">E</span><span class="o">=</span><span class="mf">206.8e9</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="mf">0.28</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Make the mesh for a cuadrilateral model.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    L : float (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Beam&#39;s lenght
+</span></span></span><span class="line"><span class="cl"><span class="s2">    H : float (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Beam&#39;s height
+</span></span></span><span class="line"><span class="cl"><span class="s2">    F : float (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Vertical force.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    E : string (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Young module
+</span></span></span><span class="line"><span class="cl"><span class="s2">    v : string (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Poisson ratio
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nx : int (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of element in x direction
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ny : int (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of element in y direction
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Nodes array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats : ndarray (1, 2)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Mats array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Elements array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    loads : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Loads array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    BC : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Boundary conditions nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">els</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="n">rect_grid</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">els</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mats</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">E</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(((</span><span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="mi">5</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">((</span><span class="n">nx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">ny</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">H</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="o">-</span><span class="n">H</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">mask_1</span><span class="p">,</span> <span class="n">mask_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nodes</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">3</span><span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">mask_loads</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;</span> <span class="n">H</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">H</span><span class="o">/</span><span class="mi">6</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loads_nodes</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">mask_loads</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loads</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">loads_nodes</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loads</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">loads_nodes</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loads</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">F</span>
+</span></span><span class="line"><span class="cl">    <span class="n">BC</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">,</span> <span class="n">BC</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sparse_assem</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">neq</span><span class="p">,</span> <span class="n">assem_op</span><span class="p">,</span> <span class="n">uel</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Assembles the global stiffness matrix
+</span></span></span><span class="line"><span class="cl"><span class="s2">    using a sparse storing scheme
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    The scheme used to assemble is COOrdinate list (COO), and
+</span></span></span><span class="line"><span class="cl"><span class="s2">    it converted to Compressed Sparse Row (CSR) afterward
+</span></span></span><span class="line"><span class="cl"><span class="s2">    for the solution phase [1]_.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    elements : ndarray (int)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Array with the number for the nodes in each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats    : ndarray (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Array with the material profiles.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes    : ndarray (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Array with the nodal numbers and coordinates.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    assem_op : ndarray (int)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Assembly operator.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    neq : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Number of active equations in the system.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    uel : callable function (optional)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Python function that returns the local stiffness matrix.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    kglob : sparse matrix (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Array with the global stiffness matrix in a sparse
+</span></span></span><span class="line"><span class="cl"><span class="s2">      Compressed Sparse Row (CSR) format.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    References
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    .. [1] Sparse matrix. (2017, March 8). In Wikipedia,
+</span></span></span><span class="line"><span class="cl"><span class="s2">        The Free Encyclopedia.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        https://en.wikipedia.org/wiki/Sparse_matrix
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stiff_vals</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mass_vals</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">nels</span> <span class="o">=</span> <span class="n">elements</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">ele</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nels</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">kloc</span><span class="p">,</span> <span class="n">mloc</span> <span class="o">=</span> <span class="n">ass</span><span class="o">.</span><span class="n">retriever</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">ele</span><span class="p">,</span> <span class="n">uel</span><span class="o">=</span><span class="n">uel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">mats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">kloc</span> <span class="o">*=</span> <span class="n">mats</span><span class="p">[</span><span class="n">elements</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ndof</span> <span class="o">=</span> <span class="n">kloc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">dme</span> <span class="o">=</span> <span class="n">assem_op</span><span class="p">[</span><span class="n">ele</span><span class="p">,</span> <span class="p">:</span><span class="n">ndof</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndof</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">glob_row</span> <span class="o">=</span> <span class="n">dme</span><span class="p">[</span><span class="n">row</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">glob_row</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ndof</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">glob_col</span> <span class="o">=</span> <span class="n">dme</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">glob_col</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glob_row</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">glob_col</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">stiff_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">mass_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mloc</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">stiff</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">((</span><span class="n">stiff_vals</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">neq</span><span class="p">,</span> <span class="n">neq</span><span class="p">))</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mass</span> <span class="o">=</span> <span class="n">coo_matrix</span><span class="p">((</span><span class="n">mass_vals</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">neq</span><span class="p">,</span> <span class="n">neq</span><span class="p">))</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">stiff</span><span class="p">,</span> <span class="n">mass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">is_equilibrium</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Check if the system is in equilibrium
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Get from: https://github.com/AppliedMechanics-EAFIT/SolidsPy/blob/master/solidspy/solids_GUI.py
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models materials
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    loads : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models loads
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    equil : bool
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Variable True when the system is in equilibrium and False when it doesn&#39;t
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">equil</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assem_op</span><span class="p">,</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">neq</span> <span class="o">=</span> <span class="n">ass</span><span class="o">.</span><span class="n">DME</span><span class="p">(</span><span class="n">nodes</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">els</span><span class="p">,</span> <span class="n">ndof_el_max</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stiff_mat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sparse_assem</span><span class="p">(</span><span class="n">els</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">neq</span><span class="p">,</span> <span class="n">assem_op</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">rhs_vec</span> <span class="o">=</span> <span class="n">ass</span><span class="o">.</span><span class="n">loadasem</span><span class="p">(</span><span class="n">loads</span><span class="p">,</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">neq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">disp</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">static_sol</span><span class="p">(</span><span class="n">stiff_mat</span><span class="p">,</span> <span class="n">rhs_vec</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span><span class="o">/</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">rhs_vec</span><span class="o">/</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">max</span><span class="p">()):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">equil</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">equil</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">preprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">loads</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Compute IBC matrix and the static solve.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Get from: https://github.com/AppliedMechanics-EAFIT/SolidsPy/blob/master/solidspy/solids_GUI.py
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models materials
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    loads : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models loads
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    bc_array : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Boundary conditions array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    disp : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Static displacement solve
+</span></span></span><span class="line"><span class="cl"><span class="s2">    rh_vec : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Vector of loads
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">assem_op</span><span class="p">,</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">neq</span> <span class="o">=</span> <span class="n">ass</span><span class="o">.</span><span class="n">DME</span><span class="p">(</span><span class="n">nodes</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">els</span><span class="p">,</span> <span class="n">ndof_el_max</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># System assembly</span>
+</span></span><span class="line"><span class="cl">    <span class="n">stiff_mat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">sparse_assem</span><span class="p">(</span><span class="n">els</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">nodes</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">neq</span><span class="p">,</span> <span class="n">assem_op</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rhs_vec</span> <span class="o">=</span> <span class="n">ass</span><span class="o">.</span><span class="n">loadasem</span><span class="p">(</span><span class="n">loads</span><span class="p">,</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">neq</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># System solution</span>
+</span></span><span class="line"><span class="cl">    <span class="n">disp</span> <span class="o">=</span> <span class="n">sol</span><span class="o">.</span><span class="n">static_sol</span><span class="p">(</span><span class="n">stiff_mat</span><span class="p">,</span> <span class="n">rhs_vec</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span><span class="o">/</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">                       <span class="n">rhs_vec</span><span class="o">/</span><span class="n">stiff_mat</span><span class="o">.</span><span class="n">max</span><span class="p">()):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;The system is not in equilibrium!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">disp</span><span class="p">,</span> <span class="n">rhs_vec</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">postprocessing</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">bc_array</span><span class="p">,</span> <span class="n">disp</span><span class="p">,</span> <span class="n">strain_sol</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Compute the nodes displacements, strains and stresses.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Get from: https://github.com/AppliedMechanics-EAFIT/SolidsPy/blob/master/solidspy/solids_GUI.py
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models materials
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    bc_array : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Boundary conditions array
+</span></span></span><span class="line"><span class="cl"><span class="s2">    disp : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Static solve
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    disp_complete : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Displacements at elements.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    strain_nodes : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Strains at elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    stress_nodes : ndarray 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Stresses at elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">disp_complete</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">complete_disp</span><span class="p">(</span><span class="n">bc_array</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">disp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">strain_sol</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">strain_nodes</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">disp_complete</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">disp_complete</span><span class="p">,</span> <span class="n">strain_nodes</span><span class="p">,</span> <span class="n">stress_nodes</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">optimality_criteria</span><span class="p">(</span><span class="n">nelx</span><span class="p">,</span> <span class="n">nely</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">d_c</span><span class="p">,</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">g</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Optimality criteria method.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nelx : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in x direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nely : int
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in y direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    rho : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the density of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    d_c : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the derivative of the compliance.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    d_v : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the derivative of the volume.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    g : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Volume constraint.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    rho_new : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the new density of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    gt : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Volume constraint.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">l1</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">l2</span><span class="o">=</span><span class="mf">1e9</span>
+</span></span><span class="line"><span class="cl">    <span class="n">move</span><span class="o">=</span><span class="mf">0.2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rho_new</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nelx</span><span class="o">*</span><span class="n">nely</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">l2</span><span class="o">-</span><span class="n">l1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">l1</span><span class="o">+</span><span class="n">l2</span><span class="p">)</span><span class="o">&gt;</span><span class="mf">1e-3</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">lmid</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">l2</span><span class="o">+</span><span class="n">l1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">rho_new</span><span class="p">[:]</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">rho</span><span class="o">-</span><span class="n">move</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">rho</span><span class="o">+</span><span class="n">move</span><span class="p">,</span><span class="n">rho</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">d_c</span><span class="o">/</span><span class="n">d_v</span><span class="o">/</span><span class="n">lmid</span><span class="p">)))))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">gt</span><span class="o">=</span><span class="n">g</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">d_v</span><span class="o">*</span><span class="p">(</span><span class="n">rho_new</span><span class="o">-</span><span class="n">rho</span><span class="p">)))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">gt</span><span class="o">&gt;</span><span class="mi">0</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l1</span><span class="o">=</span><span class="n">lmid</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">l2</span><span class="o">=</span><span class="n">lmid</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">rho_new</span><span class="p">,</span><span class="n">gt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">volume</span><span class="p">(</span><span class="n">els</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Volume calculation.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    length : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Length of the beam.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    height : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Height of the beam.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nx : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in x direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ny : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in y direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Return 
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    V: float
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">dy</span> <span class="o">=</span> <span class="n">length</span> <span class="o">/</span> <span class="n">nx</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dx</span> <span class="o">=</span> <span class="n">height</span> <span class="o">/</span> <span class="n">ny</span>
+</span></span><span class="line"><span class="cl">    <span class="n">V</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">els</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">V</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">sensitivity_els</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">mats</span><span class="p">,</span> <span class="n">els</span><span class="p">,</span> <span class="n">UC</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Calculate the sensitivity number for each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">    mats : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models materials
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements
+</span></span></span><span class="line"><span class="cl"><span class="s2">    UC : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Displacements at nodes
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nx : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in x direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ny : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Number of elements in y direction.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    sensi_number : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Sensitivity number for each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>   
+</span></span><span class="line"><span class="cl">    <span class="n">sensi_number</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">els</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">params</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">mats</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">elcoor</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">els</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">:],</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">kloc</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">uel</span><span class="o">.</span><span class="n">elast_quad4</span><span class="p">(</span><span class="n">elcoor</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">sensi_number</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UC</span><span class="p">[</span><span class="n">els</span><span class="p">[:,</span><span class="o">-</span><span class="mi">4</span><span class="p">:]]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="n">kloc</span><span class="p">)</span> <span class="o">*</span> <span class="n">UC</span><span class="p">[</span><span class="n">els</span><span class="p">[:,</span><span class="o">-</span><span class="mi">4</span><span class="p">:]]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="n">ny</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sensi_number</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">density_filter</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">r_min</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">d_rho</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Performe the sensitivity filter.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    centers : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the centers of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    r_min : float
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Minimum radius of the filter.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    rho : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the density of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    d_rho : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the derivative of the density of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    densi_els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Sensitivity of each element with filter
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">densi_els</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">centers</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">centers</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">delta</span> <span class="o">=</span> <span class="n">centers</span><span class="o">-</span><span class="n">c</span>
+</span></span><span class="line"><span class="cl">        <span class="n">r_ij</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">delta</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H</span> <span class="o">=</span> <span class="n">r_min</span> <span class="o">-</span> <span class="n">r_ij</span>
+</span></span><span class="line"><span class="cl">        <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">densi_els</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">rho</span><span class="o">*</span><span class="n">H</span><span class="o">*</span><span class="n">d_rho</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mf">0.001</span><span class="p">,</span><span class="n">rho</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">densi_els</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">center_els</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">els</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Calculate the center of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models nodes.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    els : ndarray
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with models elements.
+</span></span></span><span class="line"><span class="cl"><span class="s2">        
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns
+</span></span></span><span class="line"><span class="cl"><span class="s2">    -------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    centers : 
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Centers of each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">centers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">els</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">els</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">[</span><span class="n">el</span><span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">:],</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">n</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="n">centers</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">el</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span> <span class="o">=</span> <span class="n">center</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">centers</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">plot_mesh</span><span class="p">(</span><span class="n">elements</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">disp</span><span class="p">,</span> <span class="n">E_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Plot contours for model
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Get from: https://github.com/AppliedMechanics-EAFIT/SolidsPy/blob/master/solidspy/solids_GUI.py
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Parameters
+</span></span></span><span class="line"><span class="cl"><span class="s2">    ----------
+</span></span></span><span class="line"><span class="cl"><span class="s2">    nodes : ndarray (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with number and nodes coordinates:
+</span></span></span><span class="line"><span class="cl"><span class="s2">         `number coordX coordY BCX BCY`
+</span></span></span><span class="line"><span class="cl"><span class="s2">    elements : ndarray (int)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the node number for the nodes that correspond
+</span></span></span><span class="line"><span class="cl"><span class="s2">        to each element.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    disp : ndarray (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with the displacements.
+</span></span></span><span class="line"><span class="cl"><span class="s2">    E_nodes : ndarray (float)
+</span></span></span><span class="line"><span class="cl"><span class="s2">        Array with strain field in the nodes.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Check for structural elements in the mesh</span>
+</span></span><span class="line"><span class="cl">    <span class="n">struct_pos</span> <span class="o">=</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> \
+</span></span><span class="line"><span class="cl">             <span class="mi">6</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> \
+</span></span><span class="line"><span class="cl">             <span class="mi">7</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">struct_pos</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Still not implemented visualization for structural elements</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">disp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">pos</span><span class="o">.</span><span class="n">plot_node_field</span><span class="p">(</span><span class="n">disp</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s2">&#34;$u_x$&#34;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&#34;$u_y$&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">figtitle</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;Horizontal displacement&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                  <span class="s2">&#34;Vertical displacement&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">E_nodes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">pos</span><span class="o">.</span><span class="n">plot_node_field</span><span class="p">(</span><span class="n">E_nodes</span><span class="p">,</span> <span class="n">nodes</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">title</span><span class="o">=</span><span class="p">[</span><span class="sa">r</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                   <span class="sa">r</span><span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                   <span class="sa">r</span><span class="s2">&#34;&#34;</span><span class="p">,],</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">figtitle</span><span class="o">=</span><span class="p">[</span><span class="s2">&#34;Strain epsilon-xx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                      <span class="s2">&#34;Strain epsilon-yy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                      <span class="s2">&#34;Strain gamma-xy&#34;</span><span class="p">])</span>
+</span></span></code></pre></div><p>The code can be found in the <a href="https://github.com/kssgarcia/OptTopolgy">github</a> repository.</p>
+<p><img src="/SIMPani1.gif" alt="Gif result">
+<img src="/SIMPani2.gif" alt="Gif result"></p>
+<p>These are some of the results returned by the code for two beams subjected to a vertical load.</p>
+<h1 id="references">References</h1>
+<p>[1] Nabaki, K., Shen, J., &amp; Huang, X. (2019). Evolutionary topological optimization of continuous structures considering fatigue failure. <em>Materials and design</em>, <em>166</em>, 107586. doi:10.1016/j.matdes.2019.107586</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a></div>
+    <small class="footer_copyright">
+        © 2023 Sepúlveda K.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer>
+<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</html>

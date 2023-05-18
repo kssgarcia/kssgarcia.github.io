@@ -6,9 +6,20 @@
     <description>Recent content on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Apr 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 May 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>BESO optimzation code</title>
+      <title>SIMP optimization code</title>
+      <link>http://kssgarcia.github.io/posts/simp_code/</link>
+      <pubDate>Wed, 17 May 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/simp_code/</guid>
+      <description>This post will present a code implemented in Python for the topology optimization method SIMP.
+First, let’s consider the next steps to make the algorithm:
+Discretized the domain and initialize the design variables. Perform the finite element analysis. Calculate the sensitivity of the objective function with respect to the density of each element. Perform the optimality criteria. Compute the error of the density. Repeat steps 2 to 5 until the mass $M^*$ or the convergence of the error is achieved.</description>
+    </item>
+    
+    <item>
+      <title>BESO optimization code</title>
       <link>http://kssgarcia.github.io/posts/beso/</link>
       <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
       
