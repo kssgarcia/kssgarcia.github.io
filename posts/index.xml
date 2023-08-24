@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Jul 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Aug 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My first neural network</title>
+      <link>http://kssgarcia.github.io/posts/firstnn/</link>
+      <pubDate>Thu, 03 Aug 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/firstnn/</guid>
+      <description>In the last few decades, neural networks have emerged as a powerful tool in the field of machine learning and artificial intelligence. These artificial networks have demonstrated their effectiveness in a wide range of applications, from speech recognition and computer vision to automatic translation and user behavior prediction.
+A neural network is a computational model composed of interconnected units called neurons, which work together to process and learn complex patterns from data.</description>
+    </item>
+    
     <item>
       <title>Neural networks</title>
       <link>http://kssgarcia.github.io/posts/neural-network/</link>

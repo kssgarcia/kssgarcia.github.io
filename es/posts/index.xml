@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Jul 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Aug 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mi primera red neuronal</title>
+      <link>http://kssgarcia.github.io/es/posts/firstnn/</link>
+      <pubDate>Thu, 03 Aug 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/firstnn/</guid>
+      <description>En las últimas décadas, las redes neuronales han emergido como una poderosa herramienta en el campo del aprendizaje automático y la inteligencia artificial. Estas redes artificiales han demostrado su eficacia en una amplia gama de aplicaciones, desde el reconocimiento de voz y la visión por computadora hasta la traducción automática y la predicción del comportamiento del usuario.
+Una red neuronal es un modelo computacional compuesto por unidades interconectadas llamadas neuronas, que trabajan en conjunto para procesar y aprender patrones complejos de datos.</description>
+    </item>
+    
     <item>
       <title>Redes neuronales</title>
       <link>http://kssgarcia.github.io/es/posts/neural-network/</link>

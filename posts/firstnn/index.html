@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">My first neural network | Kssgarcia</title>
+<meta property="og:title" content="My first neural network | Kssgarcia" />
+<meta name="twitter:title" content="My first neural network | Kssgarcia" />
+<meta itemprop="name" content="My first neural network | Kssgarcia" />
+<meta name="application-name" content="My first neural network | Kssgarcia" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
+
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/firstnn/" title="English" />
+
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/firstnn/" title="Spanish" />
+
+
+
+  <meta itemprop="image" content="http://kssgarcia.github.io/" />
+  <meta property="og:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-03T11:48:52-0500 />
+    <meta property="article:published_time" content=2023-08-03T11:48:52-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "My first neural network",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-03",
+        "description": "",
+        "wordCount":  834 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-03",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Kssgarcia"
+        }
+    }
+    </script>
+
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+
+  <link rel="canonical" href="http://kssgarcia.github.io/posts/firstnn/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+
+  
+    </head><body data-theme = "dark" class="notransition">
+<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
+  <nav class="menu" aria-label="Main Navigation">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+    </a>
+    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+    <label for="menu-trigger">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+      </span>
+    </label>
+
+    <div class="trigger">
+      <ul class="trigger-container">
+        
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="/">
+            Home
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link active"
+            href="/posts/">
+            Posts
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="https://kssgarcia.up.railway.app/">
+            Portafolio
+            </a>
+            
+          </li>
+        
+        <li class="menu-separator">
+          <span>|</span>
+        </li>
+      </ul>
+      <a id="mode" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/es/posts/firstnn/" style="text-decoration: none">Spanish</a>
+          
+          </nav>
+      
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">My first neural network</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-03T11:48:52-05:00" itemprop="datePublished"> Aug 3, 2023 </time>
+                </div>
+            </header>
+            <div class="page-content">
+                <p>In the last few decades, neural networks have emerged as a powerful tool in the field of machine learning and artificial intelligence. These artificial networks have demonstrated their effectiveness in a wide range of applications, from speech recognition and computer vision to automatic translation and user behavior prediction.</p>
+<p>A neural network is a computational model composed of interconnected units called neurons, which work together to process and learn complex patterns from data. These networks are organized into layers, where each layer consists of multiple neurons that process information and transmit signals through weighted connections.</p>
+<p>The flexibility and adaptability of neural networks have made them a promising tool for various applications, as they can learn automatically from examples and generate accurate predictions. In the field of topology optimization, which aims to find the optimal configuration of a given system or structure, neural networks have also proven to be highly valuable. Topology optimization involves determining the optimal distribution of material within a given region, maximizing structural efficiency, or minimizing some cost metric.</p>
+<p>The integration of neural networks into topology optimization has allowed overcoming the limitations of traditional approaches, which often rely on heuristic methods or specific algorithms to solve optimization problems. By using neural networks, it is possible to obtain faster and more efficient solutions, as these networks can learn to recognize patterns and key features in input data.</p>
+<p>In particular, neural networks can assist in the automatic generation of optimal designs in topology optimization. By training a neural network with input data representing the problem&rsquo;s boundary conditions and constraints, along with corresponding output representing the optimal design, the network can learn to efficiently and accurately generate optimized structural designs.</p>
+<p>This report describes the process of building a convolutional neural network that takes boundary conditions and problem constraints as input data and produces the density distribution of the optimal design. For this purpose, data was generated using the Solid Isotropic Material Penalization (SIMP) method. Section 2 presents the step-by-step construction of the neural network: 2.1 explains the data generation process, 2.2 outlines the neural network architecture, subsection 2.3 covers the training phase, and finally, Section 3 presents the results.</p>
+<h2 id="2-neural-network">2. Neural Network</h2>
+<p>To solve the structural optimization problem, a convolutional neural network was chosen due to the data structure&rsquo;s compatibility with this problem. This neural network was based on the approach proposed by Yu et al. (2018), where a convolutional neural network and a generative adversarial network were also employed.</p>
+<p>To construct this network, sample data was first generated using the traditional SIMP method. This method employs the solid elements scheme, where each element has a relative density. This density distribution is taken as the output for the neural network. The neural network has two input channels of size 61x61, representing the boundary conditions, constraints, and volume fraction. The output is a single channel of size 60x60.</p>
+<h2 id="21-sample-generation">2.1. Sample Generation</h2>
+<p>Figure 1 illustrates the data generation process. A grid of 60x60 elements was used for this purpose. To format the input and output data for processing by the neural network, two 2D matrices were organized: one containing the boundary conditions (3 channels) and the other containing the constraints and volume fraction (2 channels). Data generation was performed using a custom <a href="https://github.com/kssgarcia/DeepLearningOpt/blob/main/simp/SIMP_multi.py">code</a>, utilizing the <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">SolidsPy</a> package.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/generacion.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 1. Data generation scheme.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/canal1.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 2. Matrix for constraint and volume fraction channel.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/canal2.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 3. Matrix for boundary conditions channel.</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-architecture">2.2. Architecture</h2>
+<p>The architecture of the neural network is depicted in Figure 4. This network consists of 11 layers, which can be divided into down-sampling layers and up-sampling layers.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/arquitec.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 4. Neural network architecture.</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="training">Training</h2>
+<p>For training, 3660 samples were taken, corresponding to variations in load within the green region shown in Figure 5. This training took approximately 4.83 hours. With this data, training was conducted over 6 epochs using the Adam optimizer, requiring 11.31 hours. <a href="https://github.com/kssgarcia/DeepLearningOpt/blob/main/simp/SIMP_multi.py">Code</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/cargas.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 5. Data generation scheme.</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/entrenamiento.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 6. Data training scheme.</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="results">Results</h2>
+<p>As depicted in Figure 7, some of the results show a significant resemblance to the expected outcome. Discrepancies arise in the gray zones, where the expected beam&rsquo;s result appears smoother.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/FNNresultados.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>Figure 7. Training results.</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="conclusions">Conclusions</h2>
+<p>Topology optimization involves finding the optimal material distribution in a structure to meet performance criteria, such as minimizing weight or maximizing stiffness. Traditionally, this task has been challenging due to problem complexity and the need for multiple iterations. However, with the emergence of neural networks, a new approach to topology optimization has opened up. There are various schemes for implementing these methods in structural optimization; the one presented in this article is particularly interesting due to its non-iterative nature, aiming to leverage the full potential of machine learning tools, albeit demanding more effort. Building these models requires a significant amount and variety of data samples. The greater the sample size, the more patterns can be recognized.</p>
+<h2 id="references">References</h2>
+<p>Yu, Y., Hur, T., Jung, J., &amp; Jang, I. G. (2018). Deep learning for determining a near-optimal topological
+design without any iteration. Structural and Multidisciplinary Optimization, 59 (3), 787-799.
+<a href="https://doi.org/10.1007/s00158-018-2101-5">https://doi.org/10.1007/s00158-018-2101-5</a></p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a></div>
+    <small class="footer_copyright">
+        © 2023 Sepúlveda K.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer>
+<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</html>

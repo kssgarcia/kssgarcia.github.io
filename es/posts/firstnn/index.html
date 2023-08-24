@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Mi primera red neuronal | Kssgarcia</title>
+<meta property="og:title" content="Mi primera red neuronal | Kssgarcia" />
+<meta name="twitter:title" content="Mi primera red neuronal | Kssgarcia" />
+<meta itemprop="name" content="Mi primera red neuronal | Kssgarcia" />
+<meta name="application-name" content="Mi primera red neuronal | Kssgarcia" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
+
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/firstnn/" title="English" />
+
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/firstnn/" title="Spanish" />
+
+
+
+  <meta itemprop="image" content="http://kssgarcia.github.io/" />
+  <meta property="og:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-03T11:48:52-0500 />
+    <meta property="article:published_time" content=2023-08-03T11:48:52-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Mi primera red neuronal",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-03",
+        "description": "",
+        "wordCount":  1019 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-03",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Kssgarcia"
+        }
+    }
+    </script>
+
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+
+  <link rel="canonical" href="http://kssgarcia.github.io/es/posts/firstnn/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+
+  
+    </head><body data-theme = "dark" class="notransition">
+<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
+  <nav class="menu" aria-label="Main Navigation">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+    </a>
+    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+    <label for="menu-trigger">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+      </span>
+    </label>
+
+    <div class="trigger">
+      <ul class="trigger-container">
+        
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="/es/">
+            Home
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link active"
+            href="/es/posts/">
+            Posts
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="https://kssgarcia.up.railway.app/">
+            Portafolio
+            </a>
+            
+          </li>
+        
+        <li class="menu-separator">
+          <span>|</span>
+        </li>
+      </ul>
+      <a id="mode" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/posts/firstnn/" style="text-decoration: none">English</a>
+          
+          </nav>
+      
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Mi primera red neuronal</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-03T11:48:52-05:00" itemprop="datePublished"> Aug 3, 2023 </time>
+                </div>
+            </header>
+            <div class="page-content">
+                <p>En las últimas décadas, las redes neuronales han emergido como una poderosa herramienta en el campo del aprendizaje automático y la inteligencia artificial. Estas redes artificiales han demostrado su eficacia en una amplia gama de aplicaciones, desde el reconocimiento de voz y la visión por computadora hasta la traducción automática y la predicción del comportamiento del usuario.</p>
+<p>Una red neuronal es un modelo computacional compuesto por unidades interconectadas llamadas neuronas, que trabajan en conjunto para procesar y aprender patrones complejos de datos. Estas redes se organizan en capas, donde cada capa se compone de múltiples neuronas que procesan información y transmiten señales a través de conexiones ponderadas.</p>
+<p>La flexibilidad y adaptabilidad de las redes neuronales las han convertido en una herramienta prometedora para una variedad de aplicaciones, ya que pueden aprender automáticamente a partir de ejemplos y generar predicciones precisas. En el campo de la optimización topológica, donde se busca encontrar la configuración óptima de un sistema o estructura dada, las redes neuronales también han demostrado ser de gran utilidad. La optimización topológica implica determinar la distribución óptima de material dentro de una región dada, maximizando la eficiencia estructural o minimizando alguna métrica de costo.</p>
+<p>La integración de redes neuronales en la optimización topológica ha permitido superar las limitaciones de los enfoques tradicionales, que a menudo se basan en métodos heurísticos o algoritmos específicos para resolver problemas de optimización. Al utilizar redes neuronales, es posible obtener soluciones más rápidas y eficientes, ya que estas redes pueden aprender a reconocer patrones y características clave en los datos de entrada.</p>
+<p>En particular, las redes neuronales pueden ayudar en la generación automática de diseños óptimos en la optimización topológica. Al entrenar una red neuronal con datos de entrada que representan las condiciones y restricciones del problema de optimización, junto con la salida correspondiente que representa el diseño óptimo, la red puede aprender a generar diseños estructurales optimizados de manera eficiente y precisa.</p>
+<p>En este informe se describe el proceso de construcción de una red neuronal convolucional, que sin ningún esquema iterativo, toma como datos de entrada las condiciones de frontera y las restricciones del problema y devuelve la distribución de densidades del diseño óptimo. Para esto los datos se generaron utilizando el método SIMP. En sección 2 se presenta el paso a paso de la construcción de la red neuronal, en 2.1 se explica el proceso de generación de datos, en 2.2 se expone la arquitectura de la red neuronal, en la subsección 2.3 todo la parte de entrenamiento y por ultimo la sección 3 se muestran los resultados.</p>
+<h2 id="2-red-neuronal">2. Red neuronal</h2>
+<p>Para resolver el problema de optimización estructural se decidió utilizar una red neuronal convolución, ya que la estructura de los datos se acomoda a este problema. Esta red neuronal se baso en lo propuesto en el articulo Yu et al., 2018 en donde también se utiliza una red convolucional y una red generativa adversaria para este proceso.</p>
+<p>Para construir esta red primero se generaron los datos de muestra utilizando el método tradicional SIMP, el cual utiliza el esquema de elementos solidos, en el cual cada elementos tiene una densidad relativa. Esta distribución de densidades es la que se tomará como salida para la red neuronal.
+La red neuronal cuenta con dos canales de entrada de 61x61, en donde están representadas las condiciones de frontera, las restricciones y la fracción de volumen. La salida es un canal de 60x60.</p>
+<h2 id="21-generación-de-muestras">2.1. Generación de muestras</h2>
+<p>En la figura 1 se muestra el esquema de generación de datos, para esto se tomo una malla de 60x60 elementos. Para poder llevar los datos de entrada y salida de forma que la red neuronal los pueda procesar se organizaron en dos matrices 2d, en una se incluyeron las condiciones de frontera 3 y en la otra las restricciones y la fracción de volumen 2. Para la generación de datos se trabajó con un <a href="https://github.com/kssgarcia/DeepLearningOpt/blob/main/simp/SIMP_multi.py">código</a> propio en donde se utilizó el paquete de  <a href="https://github.com/AppliedMechanics-EAFIT/SolidsPy">SolidsPy</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/generacion.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 1. Esquema para generación de datos.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/canal1.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 2. Matriz canal restricciones y fracción de volumen.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/canal2.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 3. Matriz canal condiciones de frontera.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-arquitectura">2.2. Arquitectura</h2>
+<p>La arquitectura de la red neuronal se presenta en la imagen 4, esta red cuenta con 11 capaz que se
+pueden dividir en capaz de muestreo descendente y capaz de muestreo ascendente.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/arquitec.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 4. Arquitectura de red neuronal.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<h2 id="entrenamiento">Entrenamiento</h2>
+<p>Para el entrenamiento se tomaron 3660 muestras que corresponden a la variación de la carga en la
+zona verde mostrada en la figura 5 esto tomo alrededor de 4.83 horas, con estos datos se realizó el
+entrenamiento 6 con un epoch de 10 y con el optimizador Adam tomando un tiempo de 11.31 horas. <a href="https://github.com/kssgarcia/DeepLearningOpt/blob/main/simp/SIMP_multi.py">Código</a></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/cargas.jpg" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 5. Esquema para generación de datos.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/entrenamiento.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 6. Esquema para entrenamiento de datos.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<h2 id="resultados">Resultados</h2>
+<p>Como se muestra en la figura 7 en algunos de los resultados se evidencia gran similitud con el resultado
+esperado, la diferencia se presenta cuando se da en las zonas grises, para la viga esperada esta zona
+esta más suavizada.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><img src="/FNNresultados.png" alt="Picture 1"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><!-- raw HTML omitted -->Figure 7. Resultados de entrenamiento.<!-- raw HTML omitted --></td>
+</tr>
+</tbody>
+</table>
+<h2 id="conclusiones">Conclusiones</h2>
+<p>La optimización topológica se refiere a la búsqueda de la mejor distribución de material en una estructura para cumplir con ciertos criterios de rendimiento, como la minimización del peso o la maximización de la rigidez. Tradicionalmente, esta tarea ha sido desafiante debido a la complejidad de los problemas y la necesidad de realizar múltiples iteraciones. Sin embargo, con el surgimiento de las redes neuronales, se ha abierto una nueva forma de abordar la optimización topológica. Hay diferentes esquemas para el tipo de implementación de estos métodos en la optimización estructural el presentado en este escrito es de los mas interesantes por no tener ningún esquema iterativo, ya que intenta utilizar todo el potencial de estas herramientas de aprendizaje automático, por esto demanda mayor esfuerzo. Para construir estos modelos es importante la cantidad de muestras y variedad de las mismas. Entre más cantidad se tenga mayor cantidad de patrones se podrán reconocer.</p>
+<h2 id="referencias">Referencias</h2>
+<p>Yu, Y., Hur, T., Jung, J., &amp; Jang, I. G. (2018). Deep learning for determining a near-optimal topological
+design without any iteration. Structural and Multidisciplinary Optimization, 59 (3), 787-799.
+<a href="https://doi.org/10.1007/s00158-018-2101-5">https://doi.org/10.1007/s00158-018-2101-5</a>
+6</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a></div>
+    <small class="footer_copyright">
+        © 2023 Sepúlveda K.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer>
+<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</html>
