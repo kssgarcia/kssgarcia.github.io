@@ -6,7 +6,17 @@
     <description>Recent content on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 May 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural networks</title>
+      <link>http://kssgarcia.github.io/posts/neural-network/</link>
+      <pubDate>Thu, 13 Jul 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/neural-network/</guid>
+      <description>Introduction In recent years, advances in Deep Learning, and in particular in neural networks, have revolutionized the field of artificial intelligence. Thanks to their ability to learn autonomously from large amounts of data, neural networks have succeeded in pushing the limits of performance in a variety of tasks.
+One of the areas in which neural networks have had a significant impact is image recognition and computer vision. By using architectures such as convolutional neural networks (CNN), surprising results have been achieved in object classification, object detection, and semantic segmentation.</description>
+    </item>
+    
     <item>
       <title>SIMP optimization code</title>
       <link>http://kssgarcia.github.io/posts/simp_code/</link>

@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://kssgarcia.github.io/</loc>
-    <lastmod>2023-05-17T11:48:52-05:00</lastmod>
+    <lastmod>2023-07-13T11:48:52-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
@@ -15,8 +15,21 @@
                 href="http://kssgarcia.github.io/"
                 />
   </url><url>
+    <loc>http://kssgarcia.github.io/posts/neural-network/</loc>
+    <lastmod>2023-07-13T11:48:52-05:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="http://kssgarcia.github.io/es/posts/neural-network/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://kssgarcia.github.io/posts/neural-network/"
+                />
+  </url><url>
     <loc>http://kssgarcia.github.io/posts/</loc>
-    <lastmod>2023-05-17T11:48:52-05:00</lastmod>
+    <lastmod>2023-07-13T11:48:52-05:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"

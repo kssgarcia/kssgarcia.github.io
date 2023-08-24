@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 May 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Jul 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redes neuronales</title>
+      <link>http://kssgarcia.github.io/es/posts/neural-network/</link>
+      <pubDate>Thu, 13 Jul 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/neural-network/</guid>
+      <description>Introducción En los últimos años, los avances en Deep Learning, y en particular en las redes neuronales, han revolucionado el campo de la inteligencia artificial. Gracias a su capacidad para aprender de forma autónoma a partir de grandes cantidades de datos, las redes neuronales han logrado superar los límites de rendimiento en una variedad de tareas.
+Una de las áreas en las que las redes neuronales han tenido un impacto significativo es el reconocimiento de imágenes y la visión por computadora.</description>
+    </item>
+    
     <item>
       <title>Código de optimización SIMP</title>
       <link>http://kssgarcia.github.io/es/posts/simp_code/</link>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Neural networks | Kssgarcia</title>
+<meta property="og:title" content="Neural networks | Kssgarcia" />
+<meta name="twitter:title" content="Neural networks | Kssgarcia" />
+<meta itemprop="name" content="Neural networks | Kssgarcia" />
+<meta name="application-name" content="Neural networks | Kssgarcia" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en" />
+<meta name="language" content="en" />
+
+  <link rel="alternate" hreflang="en" href="http://kssgarcia.github.io/posts/neural-network/" title="English" />
+
+  <link rel="alternate" hreflang="es" href="http://kssgarcia.github.io/es/posts/neural-network/" title="Spanish" />
+
+
+
+  <meta itemprop="image" content="http://kssgarcia.github.io/" />
+  <meta property="og:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image" content="http://kssgarcia.github.io/" />
+  <meta name="twitter:image:src" content="http://kssgarcia.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-07-13T11:48:52-0500 />
+    <meta property="article:published_time" content=2023-07-13T11:48:52-0500 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "Neural networks",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-07-13",
+        "description": "",
+        "wordCount":  1660 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-07-13",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Kssgarcia"
+        }
+    }
+    </script>
+
+  <meta name="generator" content="Hugo 0.111.3">
+
+  
+
+  <link rel="canonical" href="http://kssgarcia.github.io/posts/neural-network/"><link href="/sass/main.min.e58aa999d17223516fd356823e96aa3be0a80ac72414cb1ac4646c7b8b979090.css" rel="stylesheet"><link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/images/favicon/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-config" content="/images/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  
+  <link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg">
+
+  
+    </head><body data-theme = "dark" class="notransition">
+<script src="http://kssgarcia.github.io/js/themeLoader.min.4e9e1a253d543bbfec02e7f2460d9621e719fd739dc8a5256faa91cda6e12e03.js"></script><div class="navbar" role="navigation">
+  <nav class="menu" aria-label="Main Navigation">
+    <a href="/" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+    </a>
+    <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+    <label for="menu-trigger">
+      <span class="menu-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+      </span>
+    </label>
+
+    <div class="trigger">
+      <ul class="trigger-container">
+        
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="/">
+            Home
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link active"
+            href="/posts/">
+            Posts
+            </a>
+            
+          </li>
+        
+          <li>
+            <a 
+            class="menu-link "
+            href="https://kssgarcia.up.railway.app/">
+            Portafolio
+            </a>
+            
+          </li>
+        
+        <li class="menu-separator">
+          <span>|</span>
+        </li>
+      </ul>
+      <a id="mode" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+      </a>
+    </div>
+  </nav>
+</div>
+
+      
+          <nav class="LangNav" style="
+              display: flex;
+              margin: auto;
+              width: 40vw;
+              justify-content: end;">
+          
+              <a href="http://kssgarcia.github.io/es/posts/neural-network/" style="text-decoration: none">Spanish</a>
+          
+          </nav>
+      
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Neural networks</h1>
+                
+                <div class="post-meta">
+                    <time datetime="2023-07-13T11:48:52-05:00" itemprop="datePublished"> Jul 13, 2023 </time>
+                </div>
+            </header>
+            <div class="page-content">
+                <h2 id="introduction">Introduction</h2>
+<p>In recent years, advances in Deep Learning, and in particular in neural networks, have revolutionized the field of artificial intelligence. Thanks to their ability to learn autonomously from large amounts of data, neural networks have succeeded in pushing the limits of performance in a variety of tasks.</p>
+<p>One of the areas in which neural networks have had a significant impact is image recognition and computer vision. By using architectures such as convolutional neural networks (CNN), surprising results have been achieved in object classification, object detection, and semantic segmentation.</p>
+<p>Structural optimization is a fundamental challenge in the field of engineering, where the goal is to find efficient and economical designs for structures that meet specific load requirements and constraints. In this search for optimal solutions, neural networks have emerged as a powerful tool in structural optimization. With their ability to machine learn and model complex relationships, neural networks offer an innovative way to improve the efficiency and performance of structures. In this introduction, we will explore how neural networks are applied in structural optimization, highlighting their potential to generate optimal designs and revolutionize structural engineering.</p>
+<p>In this article, the results of the background review on Deep Learning and the different algorithms currently presented will be presented, revealing the most convenient architectures to solve these problems and the different ways of implementing these networks to traditional optimization algorithms.</p>
+<h2 id="types-of-neural-networks">Types of neural networks</h2>
+<p>Deep learning, known as Deep Learning in English, is a branch of artificial intelligence that is based on the construction and training of artificial neural networks so that they can learn and perform tasks autonomously. Unlike traditional machine learning algorithms, which require careful feature selection and expert knowledge to extract patterns from data, deep learning focuses on enabling neural networks to learn automatically from large volumes of data without guidance. or explicit preprocessing.</p>
+<p>Deep neural networks are made up of multiple layers of interconnected processing units called neurons. Each layer extracts progressively more abstract and complex features as it progresses through the network, allowing for a hierarchical representation of the data. This deep architecture allows the model to learn high-level features and build a more sophisticated understanding of the input data.</p>
+<p>Training a deep neural network involves presenting it with labeled examples and adjusting the weights and connections between neurons so that the model can make accurate predictions. This process is carried out through the use of error optimization and back propagation algorithms, which allow the calculation of the contribution of each neuron and adjust the parameters in such a way that the error between the model predictions and the real labels is minimized.</p>
+<p>Within neural networks, different architectures are presented that aim to abstract different functions that are better suited to the task to be performed, such as image classification, natural language processing, among others. In this article three types of architectures will be presented which are commonly used in structural optimization methods:</p>
+<h3 id="multilayer-neural-network">Multilayer neural network</h3>
+<p>A multilayer neural network is an architecture of artificial neural networks that consists of multiple layers of interconnected processing units called neurons, this architecture is the simplest, so its learning capacity is more limited than other neural networks, however it is presented in This article because it can contain the general idea that covers all the architectures present in neural networks. This layered structure allows for more complex data learning and representation, making it a powerful tool in the field of machine learning and information processing.</p>
+<p>In a multilayer neural network, three main types of layers are distinguished: input layer, hidden layers, and output layer. The input layer receives the input data and passes it on to the next layer, which is usually a hidden layer. Hidden layers, as the name suggests, sit between the input layer and the output layer and are responsible for learning and extracting more abstract and complex features as you go deeper into the network. Finally, the output layer generates the predictions or desired results based on the specific task at hand.</p>
+<p>Each neuron in a multilayer neural network is connected to neurons in neighboring layers by weighted connections. These connections represent the force of influence that one neuron has on another. Each neuron in a layer receives inputs from the neurons in the previous layer, multiplies them by the corresponding weights and the bias of said neuron. The bias allows a neural network to learn and represent more complex and non-linear relationships between the input and output variables, this parameter is weightedly added to the linear combination of the inputs before applying the neuron activation function, after doing the weighted sum is passed through a nonlinear activation function. The activation function introduces nonlinearity into the model and allows the neural network to capture complex, nonlinear relationships between variables.</p>
+<p>Training a multilayer neural network involves adjusting the connection weights and bias for each neuron so that the model can make accurate predictions. This is achieved by using learning algorithms, such as error backpropagation, which calculates the difference between the model predictions and the actual labels and adjusts the weights based on this error. The training process is repeated iteratively until the model reaches a desired level of accuracy. Backpropagation is done by implementing optimization algorithms such as gradient descent. In a simple way, in a multilayer neural network, what is happening in each training cycle is evaluating the network (forward), initially with random weights and bias, and then backpropagation is applied to calculate the sensitivity of the network parameters with the error function to be able to update these parameters in order to minimize the error. The error or cost function varies depending on the problem being performed.</p>
+<p>#IMAGESSSSS</p>
+<h3 id="convolutional-network">Convolutional Network</h3>
+<p>A convolutional network, also known as a convolutional neural network (CNN), is a type of neural network architecture specifically designed to process data with a grid structure, such as images. It is characterized by the inclusion of convolutional layers, which apply convolution filters to extract visual features, and pooling layers, which reduce the dimensionality of the data.</p>
+<p>Convolutional networks are highly effective in computer vision related tasks such as object recognition, object detection, image segmentation, and image classification. This is because convolutional layers can learn local and hierarchical features from images, such as edges, textures, and shapes, and pooling layers allow invariance to small deformations and displacements.</p>
+<p>In structural optimization by means of neural networks, a variation of this neural network, encoder and decoder network based on CNN, is commonly used. The difference between this architecture and conventional CNN is that it consists of an encoder and a decoder, both based on in convolutional layers.</p>
+<p>The encoder, also known as a feature extraction network, is responsible for capturing and compressing the relevant information from an image into a lower-dimensional representation. It uses convolutional layers to extract high-level features from the image input, such as edges, textures, and shapes. These convolutional layers are often followed by pooling or subsampling layers to reduce spatial resolution and keep only the most important features. The decoder, on the other hand, is in charge of reconstructing an image from the low-dimensional representation generated by the encoder. It uses transposed convolutional layers, also known as deconvolution layers, to gradually increase the spatial resolution and produce an output image that closely resembles the original image. The decoder can also include additional convolution layers to further refine the reconstruction and improve fine detail.</p>
+<p>The connection between the encoder and the decoder is made through a hopping connection, which allows information from the high-level layers of the encoder to be transmitted directly to the decoder. This connection helps to merge the features extracted by the encoder with the spatial information from the decoder, which allows a better reconstruction of the final image.</p>
+<h3 id="adversarial-generative-neural-network">Adversarial generative neural network</h3>
+<p>A Generative Adversarial Neural Network (GAN) is a type of neural network architecture composed of two main components: a generator and a discriminator. GAN is used to generate synthetic data, such as images, music, or text, that resembles real data.</p>
+<p>The generator is responsible for creating synthetic samples from a random input space, such as noise vectors. As the generator learns during training, it attempts to generate data that is indistinguishable from the actual data.</p>
+<p>The discriminator, on the other hand, acts as a classifier that tries to distinguish between the samples generated by the generator and the actual samples. Its objective is to learn to discriminate between the generated data and the real data.</p>
+<p>During GAN training, the generator and discriminator train adversarially, competing against each other. The generator tries to fool the discriminator by generating more and more realistic samples, while the discriminator is trained to be more accurate in detecting the generated samples. This competition creates a feedback loop where both components are continuously improved.</p>
+<p>The ultimate goal of a GAN is for the generator to be able to give high-quality synthetic samples that are indistinguishable from the real data, while the discriminator becomes less and less capable of differentiating between the generated samples and the real samples.</p>
+<p>GANs have proven effective in generating realistic images, natural language processing, and other data generation tasks.</p>
+<h1 id="references">References</h1>
+<p>[1] 3Blue1Brown. (2017, October 5). But what is a neural network? —Chapter 1, Deep Learning.
+Youtube. <a href="https://www.youtube.com/watch?v=aircAruvnKk">https://www.youtube.com/watch?v=aircAruvnKk</a>
+[2] arlethv. (2022, September 19). Recursive Neural Network in Deep Learning. <a href="https://forum.huawei">https://forum.huawei</a>.
+com/enterprise/en/recursive-neural-network-in-deep-learning/thread/1003551-100757
+[3] Chandrasekhar, A., Sridhara, S., &amp; Suresh, K. (2022). GM-TOuNN: Graded Multiscale Topology
+Optimization using Neural Networks.
+[4] Sosnovik, I., &amp; Oseledets, I.V. (2017). Neural networks for topology optimization. CoRR, abs/1709.09578.
+<a href="http://arxiv.org/abs/1709.09578">http://arxiv.org/abs/1709.09578</a>
+[5] Xiang, C., Chen, A., &amp; Wang, D. (2022). Real-time stress-based topology optimization via deep lear-
+none. Thin-Walled Structures, 181, 110055. <a href="https://doi.org/https://doi.org/10.1016/j.tws">https://doi.org/https://doi.org/10.1016/j.tws</a>.
+2022.110055
+[6] Yu, Y., Hur, T., Jung, J., &amp; Jang, I.G. (2018). Deep learning for determining a near-optimal topological
+design without any iteration. Structural and Multidisciplinary Optimization, 59 (3), 787-799.
+<a href="https://doi.org/10.1007/s00158-018-2101-5">https://doi.org/10.1007/s00158-018-2101-5</a>
+[7] Zhang, Y., Peng, B., Zhou, X., Xiang, C., &amp; Wang, D. (2020). A deep Convolutional Neural Network
+for topology optimization with strong generalization ability.
+9</p>
+
+            </div>
+        </article>
+    </main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/kssgarcia" target="_blank" rel="noopener noreferrer me" title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://www.instagram.com/kssgarcia7/" target="_blank" rel="noopener noreferrer me" title="Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
+</svg>
+</a></div>
+    <small class="footer_copyright">
+        © 2023 Sepúlveda K.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer>
+<script src="http://kssgarcia.github.io/js/themeSwitchnMenu.min.2a402288242b6930b175a0722c267e2353055739b3975834df35e56d00dd8f50.js"></script></body>
+
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      renderMathInElement(document.body, {
+        delimiters: [
+          { left: "$$", right: "$$", display: true },
+          { left: "$", right: "$", display: false }
+        ]
+      });
+    });
+  </script>
+</html>
