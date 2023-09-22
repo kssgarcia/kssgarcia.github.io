@@ -6,7 +6,16 @@
     <description>Recent content on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Aug 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Resumen de avance</title>
+      <link>http://kssgarcia.github.io/es/posts/abstract/</link>
+      <pubDate>Fri, 22 Sep 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/es/posts/abstract/</guid>
+      <description>En el campo del diseño de materiales existe un interés actual por expandir el espacio de materiales mediante la exploración de arquitecturas microestructurales novedosas que aprovechan la respuesta de fases independientes. Además, ha habido una mejora en las tecnologías de fabricación que facilitan la fabricación de materiales con microestructuras específicas. Así, el interés ha pasado de los &amp;ldquo;materiales por casualidad&amp;rdquo; a los &amp;ldquo;materiales por diseño&amp;rdquo;, donde el papel de la simulación y la optimización ha cobrado importancia.</description>
+    </item>
+    
     <item>
       <title>Mi primera red neuronal</title>
       <link>http://kssgarcia.github.io/es/posts/firstnn/</link>

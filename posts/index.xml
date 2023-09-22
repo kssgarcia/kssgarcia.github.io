@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Aug 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Sep 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Progress summary</title>
+      <link>http://kssgarcia.github.io/posts/abstract/</link>
+      <pubDate>Fri, 22 Sep 2023 11:48:52 -0500</pubDate>
+      
+      <guid>http://kssgarcia.github.io/posts/abstract/</guid>
+      <description>In the field of materials design, there is a current interest in expanding the materials space through the exploration of novel microstructural architectures that leverage the response of independent phases. Additionally, there have been advancements in manufacturing technologies that facilitate the production of materials with specific microstructures. Thus, the focus has shifted from &amp;ldquo;materials by chance&amp;rdquo; to &amp;ldquo;materials by design,&amp;rdquo; where the role of simulation and optimization has gained importance. In an ideal future, we would like to be able to find the microstructure for a given set of desired properties, but currently, this is closer to fiction than reality.</description>
+    </item>
+    
     <item>
       <title>My first neural network</title>
       <link>http://kssgarcia.github.io/posts/firstnn/</link>
