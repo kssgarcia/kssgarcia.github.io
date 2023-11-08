@@ -5,6 +5,7 @@
     <link>http://kssgarcia.github.io/es/tags/</link>
     <description>Recent content in Tags on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://kssgarcia.github.io/es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>es</language>
+    <atom:link href="http://kssgarcia.github.io/es/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -6,133 +6,120 @@
     <description>Recent content in Posts on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Sep 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Nov 2023 11:48:52 -0500</lastBuildDate>
+    <atom:link href="http://kssgarcia.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to upload a package in PyPI</title>
+      <link>http://kssgarcia.github.io/posts/uploadpypi/</link>
+      <pubDate>Tue, 07 Nov 2023 11:48:52 -0500</pubDate>
+      <guid>http://kssgarcia.github.io/posts/uploadpypi/</guid>
+      <description>This post will show the step-by-step process of how to upload a package for Python to PyPI.
+Step 1 Before uploading the package, you need to have an account on PyPI and organize the project as follows:
+├───mi_proyecto│ ├───mi_modulo.py│ ├───README.md│ ├───setup.py Step 2 Create a setup.py file, which describes the package and how it should be packaged. For example:
+from setuptools import setup with open(&amp;#39;README.md&amp;#39;, &amp;#39;r&amp;#39;, encoding=&amp;#39;utf-8&amp;#39;) as f: long_description = f.</description>
+    </item>
     <item>
       <title>Progress summary</title>
       <link>http://kssgarcia.github.io/posts/abstract/</link>
       <pubDate>Fri, 22 Sep 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/abstract/</guid>
       <description>In the field of materials design, there is a current interest in expanding the materials space through the exploration of novel microstructural architectures that leverage the response of independent phases. Additionally, there have been advancements in manufacturing technologies that facilitate the production of materials with specific microstructures. Thus, the focus has shifted from &amp;ldquo;materials by chance&amp;rdquo; to &amp;ldquo;materials by design,&amp;rdquo; where the role of simulation and optimization has gained importance. In an ideal future, we would like to be able to find the microstructure for a given set of desired properties, but currently, this is closer to fiction than reality.</description>
     </item>
-    
     <item>
       <title>My first neural network</title>
       <link>http://kssgarcia.github.io/posts/firstnn/</link>
       <pubDate>Thu, 03 Aug 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/firstnn/</guid>
       <description>In the last few decades, neural networks have emerged as a powerful tool in the field of machine learning and artificial intelligence. These artificial networks have demonstrated their effectiveness in a wide range of applications, from speech recognition and computer vision to automatic translation and user behavior prediction.
 A neural network is a computational model composed of interconnected units called neurons, which work together to process and learn complex patterns from data.</description>
     </item>
-    
     <item>
       <title>Neural networks</title>
       <link>http://kssgarcia.github.io/posts/neural-network/</link>
       <pubDate>Thu, 13 Jul 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/neural-network/</guid>
       <description>Introduction In recent years, advances in Deep Learning, and in particular in neural networks, have revolutionized the field of artificial intelligence. Thanks to their ability to learn autonomously from large amounts of data, neural networks have succeeded in pushing the limits of performance in a variety of tasks.
 One of the areas in which neural networks have had a significant impact is image recognition and computer vision. By using architectures such as convolutional neural networks (CNN), surprising results have been achieved in object classification, object detection, and semantic segmentation.</description>
     </item>
-    
     <item>
       <title>SIMP optimization code</title>
       <link>http://kssgarcia.github.io/posts/simp_code/</link>
       <pubDate>Wed, 17 May 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/simp_code/</guid>
       <description>This post will present a code implemented in Python for the topology optimization method SIMP.
 First, let’s consider the next steps to make the algorithm:
 Discretized the domain and initialize the design variables. Perform the finite element analysis. Calculate the sensitivity of the objective function with respect to the density of each element. Perform the optimality criteria. Compute the error of the density. Repeat steps 2 to 5 until the mass $M^*$ or the convergence of the error is achieved.</description>
     </item>
-    
     <item>
       <title>BESO optimization code</title>
       <link>http://kssgarcia.github.io/posts/beso/</link>
       <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/beso/</guid>
       <description>In this post, I will present a Python code for the BESO optimization method.
 Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ERR=0.005$.
 Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretize the domain and assign the initial property, 0 or 1, for each element.</description>
     </item>
-    
     <item>
       <title>ESO optimization code.</title>
       <link>http://kssgarcia.github.io/posts/how_eso/</link>
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/how_eso/</guid>
       <description>In this post, I will present a Python code for the ESO optimization method.
 Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
 Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
     </item>
-    
     <item>
       <title>Stiff bases ESO optimization code</title>
       <link>http://kssgarcia.github.io/posts/stiff_eso/</link>
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/stiff_eso/</guid>
       <description>In this post, I will present a Python code for the ESO optimization method.
 Problem statement Let us consider a cantilever beam with a vertical force of 10kN, dimensions 20x10 meters, a young module of 206.8 GPa and Poisson&amp;rsquo;s ratio 0.28 figure 1 $RR=0.01$, $ER=0.005$.
 Figure 1. Beams&amp;rsquo;s diagram. First, let&amp;rsquo;s consider the following steps to do the algorithm:
 Discretization of the model in finite elements Perform the finite element analysis of the structure.</description>
     </item>
-    
     <item>
       <title>SIMP Method for Topology Optimization</title>
       <link>http://kssgarcia.github.io/posts/simp/</link>
       <pubDate>Mon, 20 Mar 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/simp/</guid>
       <description>This method has been shown to be used in a large number of problems, since it is computationally efficient and simple to implement. Unlike BESO ESO/BESO this method uses a soft-kill criterion, that is, the elements are not completely eliminated, they are only reduces the elastic modulus or one of the dimensional characteristics. This criterion is implemented since the complete removal of elements can result in theoretical difficulties.
 The problem presented seeks to minimize the minimum compliance of the model.</description>
     </item>
-    
     <item>
       <title>ESO/BESO</title>
       <link>http://kssgarcia.github.io/posts/eso_beso/</link>
       <pubDate>Wed, 15 Mar 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/eso_beso/</guid>
       <description>The ESO (evolutionary structural optimization) and BESO (bi-directional evolutionary structural optimization) methods are methods with hard-kill optimization criteria, that is, they can eliminate material and this causes the domain to be modified.
 The ESO method consists of the simple concept of removing material that is inefficient. This is done by calculating the stresses in the entire model and eliminating the elements with low values.
 Optimization by the level of stress For this, the stress level of each element is calculated and compared with criteria defined as rejection criteria.</description>
     </item>
-    
     <item>
       <title>Approach to structural optimization.</title>
       <link>http://kssgarcia.github.io/posts/approximation-to-optimization-structural/</link>
       <pubDate>Thu, 16 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/approximation-to-optimization-structural/</guid>
       <description>This post will talk about structural optimization from a more general point of view, with the aim of strengthening the bases for future applications.
 To understand in a simple way the background of structural optimization it is a good idea to separate the two terms and take the definition of each. Optimization consists of doing things better and a structure can be understood as an assembly of material that has the purpose of supporting loading.</description>
     </item>
-    
     <item>
       <title>Project 2023</title>
       <link>http://kssgarcia.github.io/posts/project-2023/</link>
       <pubDate>Wed, 15 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/project-2023/</guid>
       <description>In this post I will talk about the project which I will be working approximate one year. The project is about structural optimization using machine learning. The general objetive is design microstructures of hybrids materials using structural optimization.
 With advances in the manufacturing technology of microstructures of materials, the interest has increased around material simulation and optimization. One idea that is had with the arrival of new technologies is the design and manufacture of microstructures for desired properties.</description>
     </item>
-    
     <item>
       <title>Install OneDriver Linux</title>
       <link>http://kssgarcia.github.io/posts/install-onedriver-linux/</link>
       <pubDate>Fri, 10 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/posts/install-onedriver-linux/</guid>
       <description>This post is an installation&amp;rsquo;s guide for OneDriver on Ubuntu or Debian distributions.
 Almost my entire life I have used a computer with Windows operating system, some mouth ago I decide to try Linux operating system, just for curiosity, so I made a dual boot in my laptop giving me the possibility to use Linux and Windows, I decided to make this because there are some programs which aren&amp;rsquo;t available on Linux.</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,133 +5,120 @@
     <link>http://kssgarcia.github.io/es/</link>
     <description>Recent content on Kssgarcia</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Fri, 22 Sep 2023 11:48:52 -0500</lastBuildDate><atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <language>es</language>
+    <lastBuildDate>Tue, 07 Nov 2023 11:48:52 -0500</lastBuildDate>
+    <atom:link href="http://kssgarcia.github.io/es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Como subir paquete a PyPI</title>
+      <link>http://kssgarcia.github.io/es/posts/uploadpypi/</link>
+      <pubDate>Tue, 07 Nov 2023 11:48:52 -0500</pubDate>
+      <guid>http://kssgarcia.github.io/es/posts/uploadpypi/</guid>
+      <description>En este post se mostrará el paso a paso de como subir un paquete para Python en PyPI.
+Paso 1 Antes de subir el paquete hay que tener una cuenta en PyPI y Organizar el proyecto de la siguiente manera
+├───mi_proyecto│ ├───mi_modulo.py│ ├───README.md│ ├───setup.py Paso 2 Crear un archivo setup.py, este tiene la función de describir el paquete y como se debe de empaquetar. Ejemplo:
+from setuptools import setup with open(&amp;#39;README.</description>
+    </item>
     <item>
       <title>Resumen de avance</title>
       <link>http://kssgarcia.github.io/es/posts/abstract/</link>
       <pubDate>Fri, 22 Sep 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/abstract/</guid>
       <description>En el campo del diseño de materiales existe un interés actual por expandir el espacio de materiales mediante la exploración de arquitecturas microestructurales novedosas que aprovechan la respuesta de fases independientes. Además, ha habido una mejora en las tecnologías de fabricación que facilitan la fabricación de materiales con microestructuras específicas. Así, el interés ha pasado de los &amp;ldquo;materiales por casualidad&amp;rdquo; a los &amp;ldquo;materiales por diseño&amp;rdquo;, donde el papel de la simulación y la optimización ha cobrado importancia.</description>
     </item>
-    
     <item>
       <title>Mi primera red neuronal</title>
       <link>http://kssgarcia.github.io/es/posts/firstnn/</link>
       <pubDate>Thu, 03 Aug 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/firstnn/</guid>
       <description>En las últimas décadas, las redes neuronales han emergido como una poderosa herramienta en el campo del aprendizaje automático y la inteligencia artificial. Estas redes artificiales han demostrado su eficacia en una amplia gama de aplicaciones, desde el reconocimiento de voz y la visión por computadora hasta la traducción automática y la predicción del comportamiento del usuario.
 Una red neuronal es un modelo computacional compuesto por unidades interconectadas llamadas neuronas, que trabajan en conjunto para procesar y aprender patrones complejos de datos.</description>
     </item>
-    
     <item>
       <title>Redes neuronales</title>
       <link>http://kssgarcia.github.io/es/posts/neural-network/</link>
       <pubDate>Thu, 13 Jul 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/neural-network/</guid>
       <description>Introducción En los últimos años, los avances en Deep Learning, y en particular en las redes neuronales, han revolucionado el campo de la inteligencia artificial. Gracias a su capacidad para aprender de forma autónoma a partir de grandes cantidades de datos, las redes neuronales han logrado superar los límites de rendimiento en una variedad de tareas.
 Una de las áreas en las que las redes neuronales han tenido un impacto significativo es el reconocimiento de imágenes y la visión por computadora.</description>
     </item>
-    
     <item>
       <title>Código de optimización SIMP</title>
       <link>http://kssgarcia.github.io/es/posts/simp_code/</link>
       <pubDate>Wed, 17 May 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/simp_code/</guid>
       <description>Esta publicación presentará un código implementado en Python para el método de optimización topologica SIMP.
 Primero, consideremos los siguientes pasos para hacer el algoritmo:
 Discretizar el dominio e inicializar las variables de diseño. Realice el análisis de elementos finitos. Calcular la sensibilidad de la función objetivo con respecto a la densidad de cada elemento. Realizar los criterios de optimalidad. Calcular el error de la densidad. Repita los pasos 2 a 5 hasta que se logre la masa $M^*$ o la convergencia del error.</description>
     </item>
-    
     <item>
       <title>Código de optimización BESO</title>
       <link>http://kssgarcia.github.io/es/posts/beso/</link>
       <pubDate>Mon, 24 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/beso/</guid>
       <description>En esta publicación, presentaré un código Python para el método de optimización de BESO.
 Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ERR=0.005$.
 Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
 Discretizar el dominio y asignar la propiedad inicial, 0 o 1, para cada elemento.</description>
     </item>
-    
     <item>
       <title>Código de optimización ESO</title>
       <link>http://kssgarcia.github.io/es/posts/how_eso/</link>
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/how_eso/</guid>
       <description>En esta publicación, presentaré un código Python para el método de optimización de ESO.
 Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ER=0.005$.
 Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
 Discretización del modelo en elementos finitos Realizar el análisis de elementos finitos de la estructura.</description>
     </item>
-    
     <item>
       <title>Código de optimización ESO basado en rigidez</title>
       <link>http://kssgarcia.github.io/es/posts/stiff_eso/</link>
       <pubDate>Sun, 23 Apr 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/stiff_eso/</guid>
       <description>En esta publicación, presentaré un código Python para el método de optimización de ESO.
 Planteamiento del problema Consideremos una viga en voladizo con una fuerza vertical de 10kN, dimensiones 20x10 metros, módulo joven de 206.8 GPa y relación de Poisson 0.28 figura 1 $RR=0.01$, $ER=0.005$.
 Figura 1. Diagrama de vigas. Primero, consideremos los siguientes pasos para hacer el algoritmo:
 Discretización del modelo en elementos finitos Realizar el análisis de elementos finitos de la estructura.</description>
     </item>
-    
     <item>
       <title>SIMP método para optimización topológica</title>
       <link>http://kssgarcia.github.io/es/posts/simp/</link>
       <pubDate>Mon, 20 Mar 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/simp/</guid>
       <description>Este método ha demostrado ser utilizado en una gran cantidad de problemas, ya que es un método eficiente computacionalmente y simple de implementar. A diferencia de BESO ESO/BESO este método utiliza un criterio soft-kill, es decir que no se eliminan completamente los elementos, solo se reduce el modulo elástico o una de las características dimensionales. Este criterio se implementa ya que la eliminación completa de elementos puede resultar en dificultades teóricas.</description>
     </item>
-    
     <item>
       <title>ESO/BESO</title>
       <link>http://kssgarcia.github.io/es/posts/eso_beso/</link>
       <pubDate>Wed, 15 Mar 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/eso_beso/</guid>
       <description>El método ESO (evolutionary structural optimization) y BESO (bi-directional evolutionary structural optimization) son metodos con criterio de optimización hard-kill, es decir que puede eliminar material y esto hace que el dominio se vea modificado.
 El método ESO consiste en el simple concepto de ir removiendo material que es ineficiente. Esto se realiza calculando los esfuerzos en todo el modelo y eliminando los elementos que presentan valores bajos.
 Optimizacion por nivel de esfuerzo Para esto se calcula el nivel de esfuerzo de cada elemento y se compara con criterio definido como criterio de rechazo</description>
     </item>
-    
     <item>
       <title>Aproximación a optimización estructural</title>
       <link>http://kssgarcia.github.io/es/posts/approximation-to-optimization-structural/</link>
       <pubDate>Thu, 16 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/approximation-to-optimization-structural/</guid>
       <description>En este post se hablará de optimización estructural desde un punto más general, con el objetivo de afianzar las bases para futuras aplicaciones.
 Para entender de forma simple el trasfondo de la optimización estructural es buena idea separar los dos términos y tomar la definición de cada uno. La optimización consiste en hacer las cosas mejor y una estructura se puede entender como un ensamble de material que tiene como propósito soportar cargar.</description>
     </item>
-    
     <item>
       <title>Proyecto 2023</title>
       <link>http://kssgarcia.github.io/es/posts/project-2023/</link>
       <pubDate>Wed, 15 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/project-2023/</guid>
       <description>En este post hablaré del proyecto en el cual estaré trabajando aproximadamente un año. El proyecto trata sobre optimización estructural mediante el aprendizaje automático. El objetivo general es diseñar microestructuras de materiales híbridos mediante optimización estructural.
 Con los avances en la tecnología de fabricación de microestructuras de materiales se ha aumentado el interés alrededor de simulación de materiales y optimización. Unas de las ideas que se tiene con la llegada de nuevas tecnologías es el diseño y fabricación de microestructuras para propiedades deseadas.</description>
     </item>
-    
     <item>
       <title>Instalación de OneDriver en Linux</title>
       <link>http://kssgarcia.github.io/es/posts/install-onedriver-linux/</link>
       <pubDate>Fri, 10 Feb 2023 11:48:52 -0500</pubDate>
-      
       <guid>http://kssgarcia.github.io/es/posts/install-onedriver-linux/</guid>
       <description>Esta publicación es una guía de instalación para OneDriver en distribuciones Ubuntu o Debian.
 Casi toda mi vida he usado una computadora con sistema operativo Windows, hace algún tiempo decidí probar el sistema operativo Linux, solo por curiosidad, así que hice un arranque dual en mi computadora portátil dándome la posibilidad de usar Linux y Windows, decidí hacer esto porque hay algunos programas que no están disponibles en Linux. Después de investigar un poco y leer sobre Linux y cómo este sistema operativo es mejor para la programación, exporté todo mi flujo de trabajo de Windows a Linux, utilicé la distribución de Ubuntu para la instalación.</description>
     </item>
-    
   </channel>
 </rss>
